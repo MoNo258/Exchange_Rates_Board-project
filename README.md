@@ -1,7 +1,7 @@
 # TradingBoard-project
 Final Project for CodersLab JavaScrip+React course
 
-####This project uses:
+#### This project uses:
 * JavaScript ES6
 * React
 * CSS and Sass
