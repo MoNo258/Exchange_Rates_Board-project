@@ -1,5 +1,5 @@
 {
-  "name": "TradingBoard",
+  "name": "Exchange_Rates_Board-project",
   "version": "1.0.0",
   "description": "Final Project for JavaScript + React course in CodersLab",
   "main": "index.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MoNo258/TradingBoard-project"
+    "url": "git+https://github.com/MoNo258/Exchange_Rates_Board-project"
   },
   "author": "Monika N",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/MoNo258/TradingBoard-project"
+    "url": "https://github.com/MoNo258/Exchange_Rates_Board-project"
   },
-  "homepage": "https://github.com/MoNo258/TradingBoard-project#readme",
+  "homepage": "https://github.com/MoNo258/Exchange_Rates_Board-project#readme",
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/plugin-proposal-class-properties": "^7.10.1",

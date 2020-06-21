@@ -5,4 +5,4 @@ function App() {
     return <h1>Hello App</h1>
 }
 
-ReactDOM.render(<App/>, document.querySelector("#app"));
+ReactDOM.render(<App />, document.querySelector("#app"));

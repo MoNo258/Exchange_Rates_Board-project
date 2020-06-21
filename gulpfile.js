@@ -47,7 +47,7 @@ function server(cb) {
     },
     notify: false,
     host: "192.168.1.192",
-    port: 3000,
+    port: 3001,
   });
   cb();
 }

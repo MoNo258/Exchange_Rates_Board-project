@@ -8,8 +8,18 @@ module.exports = [{
         filename: "bundle.min.js",
         path: path.resolve(__dirname, "./distribution/js")
     },
+    devServer: {
+        contentBase: path.join(__dirname, "./distribution/index.html"),
+        // contentBase: path.join(__dirname),
+        // contentBase: path.join(__dirname, `./distribution`),
+        publicPath: "/build/",
+        compress: true,
+        port: 3001,
+        historyApiFallback: true
+    },
     watch: false,
-    mode: 'production',
+    mode: 'development',
+    // mode: 'production',
     devtool: "source-map",
     module: {
         rules: [
@@ -34,8 +44,18 @@ module.exports = [{
             filename: "bundle2.min.js",
             path: path.resolve(__dirname, "./distribution/js")
         },
+        devServer: {
+            contentBase: path.join(__dirname, "./distribution/app.html"),
+            // contentBase: path.join(__dirname),
+            // contentBase: path.join(__dirname, `./distribution`),
+            publicPath: "/build/",
+            compress: true,
+            port: 3001,
+            historyApiFallback: true
+        },
         watch: false,
-        mode: 'production',
+        mode: 'development',
+        // mode: 'production',
         devtool: "source-map",
         module: {
             rules: [

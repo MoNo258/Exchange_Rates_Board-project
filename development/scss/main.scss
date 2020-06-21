@@ -6,14 +6,14 @@
 
 // partials
 //for index.html
-@import "partials/header";
-@import "partials/banner";
-@import "partials/footer";
+//@import "partials/header";
+//@import "partials/banner";
+//@import "partials/footer";
 
 //for app.html
-@import "partials/mainApp";
-@import "partials/headerApp";
-@import "partials/navApp";
+//@import "partials/mainApp";
+//@import "partials/headerApp";
+//@import "partials/navApp";
 
 
 
@@ -22,12 +22,12 @@
   box-sizing: border-box;
 }
 
-body{
-  background-color: $color-background;
-  font-family: $font-open-sans;
-}
-
-.container{
-  width: 1440px;
-  margin: 0 auto;
-}
+//body{
+//  background-color: $color-background;
+//  font-family: $font-open-sans;
+//}
+//
+//.container{
+//  width: 1440px;
+//  margin: 0 auto;
+//}

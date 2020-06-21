@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-function App() {
+function Index() {
     return <h1>Hello Index</h1>
 }
 
-ReactDOM.render(<App/>, document.querySelector("#app"));
+ReactDOM.render(<Index />, document.querySelector("#index"));
