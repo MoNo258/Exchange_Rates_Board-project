@@ -1,0 +1,28 @@
+@import "../settings/variables";
+
+@import url('https://fonts.googleapis.com/css?family=Charmonman');
+
+//mixin for grid layout
+@mixin gridLayout{
+  $gap: 10px;
+  $columns: 12;
+  $bp: 860px;
+
+  .row {
+    [class*="col-"] {
+      padding: 0 $gap;
+      padding-bottom: 2 * $gap;
+      box-sizing: border-box;
+    }
+
+    @media (min-width: $bp) {
+      display: flex;
+
+      @for $i from 1 through $columns {
+        .col-#{$i} {
+          width: 100% / $columns * $i;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@import "../settings/variables";
+//style for the basic grid
+@include gridLayout;
+
+.banner{
+  width: 100%;
+  height: 300px;
+  background-color: $color-dark-grey;
+  color: #fff;
+}
+
+.banner__container{
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-dark-grey;
+}
+
+.banner__title{
+  font-size: 2.5em;
+  margin: 50px 0;
+}
+
+.banner__text{
+  font-size: 1.25em;
+  margin: 50px 0;
+}
+
+.banner__button-btn{
+  font-size: 1em;
+  font-weight: bold;
+  background-color: $color-orange;
+  color: #FFF;
+  text-decoration: none;
+  padding: 15px 30px;
+  &:hover {
+    box-shadow: 0 0 5px 1px $color-orange;
+  }
+}

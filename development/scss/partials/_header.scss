@@ -1,0 +1,59 @@
+@import "../settings/variables";
+
+.header {
+    height: 100px;
+    background-color: $color-dark-grey;
+    width: 100%;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $color-dark-grey;
+        height: 100%;
+        width: 100%;
+    }
+
+    &__nav {
+        display: flex;
+
+        &-element.is-active {
+            .header__nav-link {
+                color: #FF6600;
+            }
+        }
+    }
+
+    &__nav-element {
+        padding: 0 50px;
+        font-size: 1.3em;
+    }
+
+    &__nav-link {
+        color: white;
+        text-transform: uppercase;
+        text-decoration: none;
+
+        &:hover {
+            color: $color-orange;
+
+        }
+    }
+}
+
+// ----- LOGO -----
+
+.logo {
+    font-family: $font-logo;
+    font-size: 3em;
+
+    #first {
+        font-weight: 100;
+        color: white;
+    }
+
+    #second {
+        color: $color-orange;
+        font-weight: 700;
+    }
+}

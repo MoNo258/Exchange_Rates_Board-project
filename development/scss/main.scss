@@ -1,0 +1,33 @@
+@import "generic/reset";
+@import "generic/print";
+
+@import "settings/mixins";
+@import "settings/variables";
+
+// partials
+//for index.html
+@import "partials/header";    //header: 1.1 nagłówek
+@import "partials/banner";    //banner: 1.3 call to action
+@import "partials/footer";      //footer: 1.7 stopka
+
+//for app.html
+@import "partials/mainApp";
+@import "partials/headerApp";
+@import "partials/navApp";
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body{
+  background-color: $color-background;
+  font-family: $font-open-sans;
+}
+
+.container{
+  width: 1440px;
+  margin: 0 auto;
+}
