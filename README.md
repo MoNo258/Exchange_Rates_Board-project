@@ -12,6 +12,25 @@ Final Project for CodersLab JavaScrip+React course
 
 # Useful info
 
+## Webpack stuff
+
+How to run app?
+in `package.json` there is key `scripts` which give information what needs to be run when app is starting.
+```JavaScript
+{
+"start": "webpack-dev-server --hot -d",
+"build": "webpack -p"
+}
+```
+`start` will run development server:
+```JavaScript
+npm start
+```
+`build` will run production version of our app. This will create `build` folder with out.js file:
+```JavaScript
+npm run build
+```
+
 ## JSON Server
 In case when API is not available yet we can simulate getting data from the server using `JSON Server`:
 `JSON Server` should be installed:

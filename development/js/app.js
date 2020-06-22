@@ -1,8 +1,11 @@
-import React from "react";
+import React, {Component} from "react";
 import ReactDOM from "react-dom";
+import {Register} from "./models/Register";
 
-function App() {
-    return <h1>Hello App</h1>
-}
+import "../scss/main.scss";
+
+console.log('check')
+
+const App = () => <Register />
 
 ReactDOM.render(<App />, document.querySelector("#app"));
