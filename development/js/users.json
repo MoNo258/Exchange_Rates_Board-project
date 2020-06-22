@@ -29,26 +29,6 @@
       "city": "sdfsdf",
       "postCode": "00-000",
       "id": 3
-    },
-    {
-      "id": 4,
-      "fullname": "MONIKA NOWOGÓRSKA",
-      "email": "monika258@gmail.com",
-      "password": "123456",
-      "sex": "w",
-      "street": "UL. PUSZCZYKA 20",
-      "city": "WARSZAWA",
-      "postCode": "02-785"
-    },
-    {
-      "id": 5,
-      "fullname": "MONIKA NOWOGÓRSKA",
-      "email": "monika258@gmail.com",
-      "password": "789987",
-      "sex": "w",
-      "street": "UL. PUSZCZYKA 20",
-      "city": "WARSZAWA",
-      "postCode": "02-785"
     }
   ]
 }
