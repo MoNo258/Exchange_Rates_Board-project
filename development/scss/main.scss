@@ -3,6 +3,9 @@
 
 @import "settings/mixins";
 @import "settings/variables";
+@import "~black-dashboard-react/src/assets/scss/black-dashboard-react";
+//@import "~black-dashboard-react/src/assets/css/nucleo-icons.css";
+
 
 // partials
 //for index.html
@@ -20,8 +23,10 @@
 
 * {
   box-sizing: border-box;
-  background-color: rebeccapurple;
+  //background-color: #54534f;
 }
+
+
 
 //body{
 //  background-color: $color-background;

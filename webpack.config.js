@@ -103,16 +103,15 @@
 
 // short version - smth is working
 const path = require("path");
-const entryPath = "development";
 
 module.exports = {
-    entry: ["whatwg-fetch",`./${entryPath}/js/app.js`],
+    entry: ["whatwg-fetch",`./development/js/app.js`],
     output: {
         filename: "out.js",
-        path: path.resolve(__dirname, `${entryPath}/build`)
+        path: path.resolve(__dirname, `development/build`)
     },
     devServer: {
-        contentBase: path.join(__dirname, `${entryPath}`),
+        contentBase: path.join(__dirname, `development`),
         publicPath: "/build/",
         compress: true,
         port: 3001,
@@ -124,15 +123,23 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
-            },{
+            },
+            // {
+            //     test: /\.js$/,
+            //     exclude: /node_modules/,
+            //     use: {
+            //         loader: 'babel-loader',
+            //         options: {
+            //             presets: ['@babel/preset-env']
+            //         }
+            //     }
+            // },
+            {
                 test: /\.s[ac]ss$/i,
                 use: [
-                    // Creates `style` nodes from JS strings
                     'style-loader',
-                    // Translates CSS into CommonJS
                     'css-loader',
-                    // Compiles Sass to CSS
-                    'sass-loader',
+                    'sass-loader'
                 ],
             }
         ]
