@@ -31,3 +31,4 @@ distribution/
 ### Used for tests only ###
 development/js/users.json
 development/js/db.json
+development/assets/black-dashboard-react

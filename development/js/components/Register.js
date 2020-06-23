@@ -3,6 +3,7 @@ import {UserDetails} from "./UserDetails";
 import {UserApiService} from "../services/UserApiService";
 import {User} from "../models/User";
 
+
 const userApiService = new UserApiService();
 
 export const Register = () => {
@@ -92,6 +93,7 @@ export const Register = () => {
                 <input type={"text"} name={"postCode"} placeholder={"Post Code"} value={user.postCode} onChange={handleChangeUserData}/>
                 <button>Register</button>
             </form>
+
         </section>
     )
 }
