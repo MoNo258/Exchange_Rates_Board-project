@@ -29,7 +29,7 @@ import Sidebar from "../components/Sidebar";
 
 import routes from "../router";
 
-import logo from "../../assets/images/pic8_graph.png";
+import logo from "../../assets/images/logo.png";
 
 var ps;
 
