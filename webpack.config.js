@@ -100,12 +100,11 @@
 // };
 
 
-
 // short version - smth is working
 const path = require("path");
 
 module.exports = {
-    entry: ["whatwg-fetch",`./development/js/app.js`],
+    entry: ["whatwg-fetch", `./development/js/app.js`],
     output: {
         filename: "out.js",
         path: path.resolve(__dirname, `development/build`)
@@ -146,13 +145,22 @@ module.exports = {
                 test: /\.html$/i,
                 loader: 'html-loader',
             },
+            // {
+            //     test: /\.(png|jpe?g|gif|svg)$/i,
+            //     use: [
+            //         {
+            //             loader: 'file-loader',
+            //         }
+            //     ]
+            // },
             {
-                test: /\.(png|jpe?g|gif|svg)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                    }
-                ]
+                test: /\.(jpe?g|gif|png|svg)$/,
+                loader: "file-loader",
+                options: {
+                    name: "[name].[ext]",
+                    publicPath: "./development/assets/images/",
+                    outputPath: "./development/assets/images/"
+                }
             },
             {
                 test: /\.(png|jpg|gif)$/i,
