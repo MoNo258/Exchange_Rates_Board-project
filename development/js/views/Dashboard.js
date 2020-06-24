@@ -163,6 +163,232 @@ class Dashboard extends React.Component {
                         </Col>
                     </Row>
                     <Row>
+                        <Col md="12">
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle tag="h4">Spots</CardTitle>
+                                </CardHeader>
+                                <CardBody>
+                                    <Row>
+                                        <Col md='6'>
+                                            <CardHeader>
+                                                <CardTitle tag='h6'>Spots Forex</CardTitle>
+                                            </CardHeader>
+                                            <CardBody>
+                                                <Table className='tablesorter' responsive>
+                                                    <thead className='text-primary'>
+                                                    <tr>
+                                                        <th>Crncy</th>
+                                                        <th>Bid</th>
+                                                        <th>Ask</th>
+                                                        <th>Time</th>
+                                                        <th>Close</th>
+                                                        <th>Change</th>
+                                                        <th></th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>EUR</td>
+                                                        <td>0.1234</td>
+                                                        <td>0.1245</td>
+                                                        <td>9:35</td>
+                                                        <td>0.1375</td>
+                                                        <td>-9.85%</td>
+                                                        <td><i className="value-decrease fa fa-arrow-down" aria-hidden="true"></i></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>CHF</td>
+                                                        <td>0.1434</td>
+                                                        <td>0.1545</td>
+                                                        <td>9:35</td>
+                                                        <td>0.1375</td>
+                                                        <td>+11.85%</td>
+                                                        <td><i className="value-growth fa fa-arrow-up" aria-hidden="true"></i></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>USD</td>
+                                                        <td>1.0000</td>
+                                                        <td>1.0000</td>
+                                                        <td>9:35</td>
+                                                        <td>1.0000</td>
+                                                        <td>+0.00%</td>
+                                                        <td><i className="value-stable fas fa-arrows-alt-h"></i></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </Table>
+                                            </CardBody>
+                                        </Col>
+                                        <Col md='6'>
+                                            <CardHeader>
+                                                <CardTitle tag='h6'>Spots Forex</CardTitle>
+                                            </CardHeader>
+                                            <CardBody>
+                                                <Table className='tablesorter' responsive>
+                                                    <thead className='text-primary'>
+                                                    <tr>
+                                                        <th>Crncy</th>
+                                                        <th>Bid</th>
+                                                        <th>Ask</th>
+                                                        <th>Time</th>
+                                                        <th>Close</th>
+                                                        <th>Change</th>
+                                                        <th></th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>ZAR</td>
+                                                        <td>0.1234</td>
+                                                        <td>0.1245</td>
+                                                        <td>9:35</td>
+                                                        <td>0.1375</td>
+                                                        <td>-9.85%</td>
+                                                        <td><i className="value-decrease fa fa-arrow-down" aria-hidden="true"></i></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>MXN</td>
+                                                        <td>0.1434</td>
+                                                        <td>0.1545</td>
+                                                        <td>9:35</td>
+                                                        <td>0.1375</td>
+                                                        <td>+11.85%</td>
+                                                        <td><i className="value-growth fa fa-arrow-up" aria-hidden="true"></i></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>IND</td>
+                                                        <td>1.0000</td>
+                                                        <td>1.0000</td>
+                                                        <td>9:35</td>
+                                                        <td>1.0000</td>
+                                                        <td>+0.00%</td>
+                                                        <td><i className="value-stable fas fa-arrows-alt-h"></i></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </Table>
+                                            </CardBody>
+                                        </Col>
+                                    </Row>
+                                </CardBody>
+                            </Card>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col md="12">
+                            <Card>
+                                <CardHeader>
+                                    <CardTitle tag="h4">Rates</CardTitle>
+                                </CardHeader>
+                                <CardBody>
+                                    <Row>
+                                        <Col md='4'>
+                                            <CardHeader>
+                                                <CardTitle tag='h6'>Interest Rates EUR </CardTitle>
+                                            </CardHeader>
+                                            <CardBody>
+                                                <Table className='tablesorter' responsive>
+                                                    <thead className='text-primary'>
+                                                        <tr>
+                                                            <th>Tenor</th>
+                                                            <th>Bid</th>
+                                                            <th></th>
+                                                            <th>Ask</th>
+                                                            <th>Time</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1M</td>
+                                                            <td>0.1234</td>
+                                                            <td>/</td>
+                                                            <td>0.2345</td>
+                                                            <td>11:23</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2M</td>
+                                                            <td>0.1344</td>
+                                                            <td>/</td>
+                                                            <td>0.2245</td>
+                                                            <td>11:24</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </Table>
+                                            </CardBody>
+                                        </Col>
+                                        <Col md='4'>
+                                            <CardHeader>
+                                                <CardTitle tag='h6'>Interest Rates EUR </CardTitle>
+                                            </CardHeader>
+                                            <CardBody>
+                                                <Table className='tablesorter' responsive>
+                                                    <thead className='text-primary'>
+                                                    <tr>
+                                                        <th>Tenor</th>
+                                                        <th>Bid</th>
+                                                        <th></th>
+                                                        <th>Ask</th>
+                                                        <th>Time</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>1M</td>
+                                                        <td>0.1234</td>
+                                                        <td>/</td>
+                                                        <td>0.2345</td>
+                                                        <td>11:23</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2M</td>
+                                                        <td>0.1344</td>
+                                                        <td>/</td>
+                                                        <td>0.2245</td>
+                                                        <td>11:24</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </Table>
+                                            </CardBody>
+                                        </Col>
+                                        <Col md='4'>
+                                            <CardHeader>
+                                                <CardTitle tag='h6'>Interest Rates EUR </CardTitle>
+                                            </CardHeader>
+                                            <CardBody>
+                                                <Table className='tablesorter' responsive>
+                                                    <thead className='text-primary'>
+                                                    <tr>
+                                                        <th>Tenor</th>
+                                                        <th>Bid</th>
+                                                        <th></th>
+                                                        <th>Ask</th>
+                                                        <th>Time</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>1M</td>
+                                                        <td>0.1234</td>
+                                                        <td>/</td>
+                                                        <td>0.2345</td>
+                                                        <td>11:23</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2M</td>
+                                                        <td>0.1344</td>
+                                                        <td>/</td>
+                                                        <td>0.2245</td>
+                                                        <td>11:24</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </Table>
+                                            </CardBody>
+                                        </Col>
+                                    </Row>
+                                </CardBody>
+                            </Card>
+                        </Col>
+                    </Row>
+                    <Row>
                         <Col lg="4">
                             <Card className="card-chart">
                                 <CardHeader>

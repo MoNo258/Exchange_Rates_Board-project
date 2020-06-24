@@ -100,15 +100,19 @@
 // };
 
 
-
-// short version - smth is working
+// short version - working
 const path = require("path");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const autoprefixer = require('autoprefixer');
+const Html = require('html-webpack-plugin');
+const Compression = require("compression-webpack-plugin");
 
 module.exports = {
-    entry: ["whatwg-fetch",`./development/js/app.js`],
+    entry: ["whatwg-fetch", `./development/js/app.js`],
     output: {
         filename: "out.js",
-        path: path.resolve(__dirname, `development/build`)
+        path: path.resolve(__dirname, `development/build`),
+        publicPath: "/"
     },
     devServer: {
         contentBase: path.join(__dirname, `development`),
@@ -117,6 +121,22 @@ module.exports = {
         port: 3001,
         historyApiFallback: true
     },
+    watch: true,
+    mode: 'development',
+    devtool: "source-map",
+    plugins: [
+        new Html({
+            filename: "index.html",
+            template: `./development/index.html`
+        }),
+        new MiniCssExtractPlugin({
+            filename: "main.css",
+        }),
+        new Compression({
+            threshold: 0,
+            minRatio: 0.5
+        })
+    ],
     module: {
         rules: [
             {
@@ -134,12 +154,41 @@ module.exports = {
             //         }
             //     }
             // },
+            // {
+            //     test: /\.s[ac]ss$/i,
+            //     use: [
+            //         'style-loader',
+            //         'css-loader',
+            //         'sass-loader'
+            //     ],
+            // },
             {
-                test: /\.s[ac]ss$/i,
+                test: /\.scss$/,
+                exclude: /node_modules/,
                 use: [
+                    // //Uncomment for production \/
+                    // MiniCssExtractPlugin.loader,
+                    //Comment for production \/
                     'style-loader',
-                    'css-loader',
-                    'sass-loader'
+                    // //end of code to comment/uncomment
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [autoprefixer()]
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    }
                 ],
             },
             {
@@ -147,12 +196,13 @@ module.exports = {
                 loader: 'html-loader',
             },
             {
-                test: /\.(png|jpe?g|gif|svg)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                    }
-                ]
+                test: /\.(jpe?g|gif|png|svg)$/,
+                loader: "file-loader",
+                options: {
+                    name: "[name].[ext]",
+                    publicPath: "/images/",
+                    outputPath: "/images/"
+                }
             },
             {
                 test: /\.(png|jpg|gif)$/i,

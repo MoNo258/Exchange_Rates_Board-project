@@ -68,7 +68,8 @@ class Sidebar extends React.Component {
                         onClick={this.props.toggleSidebar}
                     >
                         <div className="logo-img">
-                            <img src={logo.imgSrc} alt="react-logo" />
+                            {/*<img src={logo.imgSrc} alt="logo" />*/}
+                            <img src='https://cdn.pixabay.com/photo/2017/01/25/17/33/diagram-2008478_960_720.png' alt="logo" />
                         </div>
                     </a>
                 );
@@ -90,7 +91,9 @@ class Sidebar extends React.Component {
                         onClick={this.props.toggleSidebar}
                     >
                         <div className="logo-img">
-                            <img src={logo.imgSrc} alt="react-logo" />
+                            {/*<img src={logo.imgSrc} alt="logo" />*/}
+                            <img src='https://cdn.pixabay.com/photo/2017/01/25/17/33/diagram-2008478_960_720.png' alt="logo" />
+                            {/*<img src='https://cdn.pixabay.com/photo/2013/07/12/14/28/chart-line-148256_960_720.png' alt="logo" />*/}
                         </div>
                     </Link>
                 );
@@ -107,7 +110,7 @@ class Sidebar extends React.Component {
         }
         return (
             <div className="sidebar" data={bgColor}>
-                <div className="sidebar-wrapper" ref="sidebar">
+                <div className="sidebar-wrapper sidebar-wrapper--custom" id='sidebar-wrapper--custom' ref="sidebar">
                     {logoImg !== null || logoText !== null ? (
                         <div className="logo">
                             {logoImg}

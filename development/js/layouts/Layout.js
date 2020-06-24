@@ -29,7 +29,7 @@ import Sidebar from "../components/Sidebar";
 
 import routes from "../router";
 
-import logo from "../../assets/images/logo.png";
+import logo from "../../public/logo.png";
 
 var ps;
 
@@ -117,8 +117,8 @@ class Layout extends React.Component {
                         routes={routes}
                         bgColor={this.state.backgroundColor}
                         logo={{
-                            outterLink: "https://www.creative-tim.com/",
-                            text: "Creative Tim",
+                            outterLink: "/",
+                            text: "Ex_Rates Board",
                             imgSrc: logo
                         }}
                         toggleSidebar={this.toggleSidebar}
