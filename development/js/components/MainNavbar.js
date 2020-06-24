@@ -189,7 +189,13 @@ class MainNavbar extends React.Component {
                                         onClick={e => e.preventDefault()}
                                     >
                                         <div className="photo">
-                                            <img alt="..." src={require("../../assets/images/logo.png")} />
+                                            {/*<img alt="..." src={require("../../assets/images/logo.png")} />*/}
+                                            {/*<img src='https://cdn.pixabay.com/photo/2013/07/12/14/28/chart-line-148256_960_720.png' alt="logo" />*/}
+                                            {/*<img src='https://cdn.pixabay.com/photo/2017/03/08/14/20/flat-2126876_960_720.png' alt="logo" />*/}
+                                            {/*<img src='https://cdn.pixabay.com/photo/2017/03/08/14/20/flat-2126878_960_720.png' alt="logo" />*/}
+                                            <img src='https://cdn.pixabay.com/photo/2017/01/25/17/33/diagram-2008478_960_720.png' alt="logo" />
+                                            {/*<img src='https://cdn.pixabay.com/photo/2013/07/12/14/28/chart-line-148256_960_720.png' alt="logo" />*/}
+                                            {/*<img src='https://cdn.pixabay.com/photo/2016/03/31/18/41/economy-1294549_960_720.png' alt="logo" />*/}
                                         </div>
                                         <b className="caret d-none d-lg-block d-xl-block" />
                                         <p className="d-lg-none">Log out</p>

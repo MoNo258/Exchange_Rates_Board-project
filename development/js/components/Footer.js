@@ -41,7 +41,7 @@ class Footer extends React.Component {
                     </Nav>
                     <div className="copyright">
                         © {new Date().getFullYear()} made with{" "}
-                        <i className="tim-icons icon-heart-2" /> by{" "}
+                        <i className="tim-icons icon-heart-2 fas fa-heart" /> by{" "}
                         <a
                             href="https://www.creative-tim.com/?ref=bdr-user-archive-footer"
                             target="_blank"

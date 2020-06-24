@@ -111,7 +111,8 @@ module.exports = {
     entry: ["whatwg-fetch", `./development/js/app.js`],
     output: {
         filename: "out.js",
-        path: path.resolve(__dirname, `development/build`)
+        path: path.resolve(__dirname, `development/build`),
+        publicPath: "/"
     },
     devServer: {
         contentBase: path.join(__dirname, `development`),
@@ -165,10 +166,11 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 use: [
-                    //Uncomment for production \/
-                    // MiniCSS.loader,
+                    // //Uncomment for production \/
+                    // MiniCssExtractPlugin.loader,
                     //Comment for production \/
                     'style-loader',
+                    // //end of code to comment/uncomment
                     {
                         loader: 'css-loader',
                         options: {

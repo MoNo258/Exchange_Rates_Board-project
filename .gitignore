@@ -8,6 +8,7 @@ node_modules/
 .sass-cache/
 
 distribution/
+build/
 
 ### OSX ###
 .DS_Store
@@ -32,6 +33,8 @@ distribution/
 development/js/users.json
 development/js/db.json
 development/assets/black-dashboard-react/
+public/
+
 development/assets/images/news.png
 development/assets/images/news2.png
 development/assets/images/pic1_graph.png
