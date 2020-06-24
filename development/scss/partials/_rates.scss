@@ -1,0 +1,16 @@
+@import "../settings/variables";
+
+//related to Font Awesome: <i className="value-decrease fa fa-arrow-down" aria-hidden="true"></i>
+.value-decrease{
+  color: $color-decrease;
+}
+
+//related to Font Awesome: <i className="value-growth fa fa-arrow-up" aria-hidden="true"></i>
+.value-growth{
+  color: $color-growth;
+}
+
+//related to Font Awesome: <i className="value-stable fas fa-arrows-alt-h"></i>
+.value-stable{
+  color: $color-stable;
+}

@@ -16,6 +16,14 @@
 //
 //=========================================================
 @import "~black-dashboard-react/src/assets/scss/black-dashboard-react";
+@import "partials/rates";
+
+
+
+#sidebar-wrapper--custom{
+  @include linear-gradient(darken(#325CF5, 20%), #325AF4);
+  border-radius: 5px;
+}
 
 
 
