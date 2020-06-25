@@ -1,5 +1,5 @@
-import {API_KEY, API_URL} from "./constants";
-import {func} from "prop-types";
+//import {API_KEY_REST, API_URL_REST, latest_REST, historical_REST, base_REST, symbols_API_REST} from "./constants";
+// import {func} from "prop-types";
 
 
 
@@ -13,3 +13,4 @@ import {func} from "prop-types";
 //         }
 //
 //     }
+
