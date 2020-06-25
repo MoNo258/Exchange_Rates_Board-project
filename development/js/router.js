@@ -23,6 +23,7 @@ import Notifications from "./views/Notifications.js";
 import TableList from "./views/TableList.js";
 import Typography from "./views/Typography.js";
 import UserProfile from "./views/UserProfile.js";
+import News from "./views/News";
 
 var routes = [
     {
@@ -79,6 +80,14 @@ var routes = [
         rtlName: "rtlName",
         icon: "tim-icons icon-align-center",
         component: Typography,
+        layout: "/main"
+    },
+    {
+        path: "/news",
+        name: "News",
+        rtlName: "rtlName",
+        icon: "tim-icons icon-align-center",
+        component: News,
         layout: "/main"
     },
     // {
