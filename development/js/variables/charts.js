@@ -46,8 +46,8 @@ let chart1_2_options = {
                     zeroLineColor: "transparent"
                 },
                 ticks: {
-                    suggestedMin: 60,
-                    suggestedMax: 125,
+                    suggestedMin: 3.5000,
+                    suggestedMax: 5.0000,
                     padding: 20,
                     fontColor: "#9a9a9a"
                 }
@@ -85,18 +85,24 @@ let chartExample1 = {
 
         return {
             labels: [
-                "JAN",
-                "FEB",
-                "MAR",
-                "APR",
-                "MAY",
-                "JUN",
-                "JUL",
-                "AUG",
-                "SEP",
-                "OCT",
-                "NOV",
-                "DEC"
+                "2020-01-02",
+                "2020-01-15",
+                "2020-01-31",
+                "2020-02-02",
+                "2020-02-15",
+                "2020-02-28",
+                "2020-03-02",
+                "2020-03-15",
+                "2020-03-30",
+                "2020-04-02",
+                "2020-04-15",
+                "2020-04-30",
+                "2020-05-02",
+                "2020-05-15",
+                "2020-05-30",
+                "2020-06-02",
+                "2020-06-15",
+                "2020-06-26",
             ],
             datasets: [
                 {

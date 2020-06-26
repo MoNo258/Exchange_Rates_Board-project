@@ -23,16 +23,11 @@ import {Card, CardHeader, CardBody, CardTitle, Row, Col} from "reactstrap";
 
 const News = () => {
     const [news, setNews] = useState([]);
+    const [currDate, setCurrDate] = useState(new Date().getTime());
 
-
-    //WebSocket not working for Chrome but working for FireFox
-    //working on Kamil's Chrome
-    //internet: certificate issues and no secured connection
+    //WebSocket
     //used WS is secured: wss://ws.xapi.pro/demo
-    //version: https://ws.xapi.pro/demo - certificate is valid
-    //working on incognito
-
-
+    //certificate can be checked here: https://ws.xapi.pro/demo
 
     const loginXtb = () => {
         let msg = {};
@@ -97,7 +92,7 @@ const News = () => {
         msg.command = "getNews";
         msg.streamSessionId = id;
         let argumentsRequest = {};
-        argumentsRequest.end = 1593031919182;
+        argumentsRequest.end = currDate;
         argumentsRequest.start = 1592859119182;
         msg.arguments = argumentsRequest;
         console.log('Getting getNews');

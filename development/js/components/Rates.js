@@ -7,8 +7,9 @@ import {API_KEY_REST, API_URL_REST, latest_REST} from "../services/constants";
 
 const Rates = () => {
     const [rates, setRates] = useState([]);
-    const [date, setDate] = useState('');
-    const [base, setBase] = useState('')
+    const [date, setDate] = useState('...');
+    const [base, setBase] = useState('...');
+    const [timestamp, setTimestamp] = useState('...');
 
     useEffect(() => {
         fetch(`${API_URL_REST}${latest_REST}${API_KEY_REST}&base=EUR&symbols=USD,GBP,CHF,AUD,CAD,JPY,SEK,DKK,NOK,SEK,PLN,RON,BGN,HUF,CZK,INR,AED,ZAR,MAD,MXN,CNY,TRY`, {
@@ -21,12 +22,13 @@ const Rates = () => {
             .then(data => {
                 setRates(data.rates);
                 setDate(data.date);
-                setBase(data.base)
+                setBase(data.base);
+                setTimestamp(data.timestamp);
             })
             .catch(error => console.log(error));
-
     }, []);
 
+    const newDate = new Date(timestamp * 1000)
 
     const htmlRatesTags = (k) => {
         const arrayRates = [];
@@ -75,7 +77,7 @@ const Rates = () => {
                 <Col md="12">
                     <Card>
                         <CardHeader>
-                            <CardTitle tag="h4">Spots for {base} as of date: {date} </CardTitle>
+                            <CardTitle tag="h4">Spots for {base} as of date: {newDate.toDateString()} </CardTitle>
                         </CardHeader>
                         <CardBody>
                             <Row>
