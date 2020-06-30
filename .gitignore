@@ -34,6 +34,7 @@ development/js/users.json
 development/js/db.json
 development/assets/black-dashboard-react/
 public/
+historicalRates.json
 
 development/assets/images/news.png
 development/assets/images/news2.png

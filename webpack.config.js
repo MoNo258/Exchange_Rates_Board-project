@@ -200,10 +200,37 @@ module.exports = {
                 loader: "file-loader",
                 options: {
                     name: "[name].[ext]",
-                    publicPath: "/images/",
-                    outputPath: "/images/"
+                    publicPath: "/assets/images/",
+                    outputPath: "/assets/images/"
                 }
             },
+
+
+            // {
+            //     test: /\.(woff|woff2|eot|ttf|svg)$/,
+            //     include: /(node_modules\/@fonticonpicker\/react-fonticonpicker\/build)/,
+            //     loader: 'file-loader',
+            //     options: {
+            //         limit: 1024,
+            //         name: '[name].[ext]',
+            //         publicPath: '/assets/fonts',
+            //         outputPath: '/assets/fonts'
+            //     }
+            // },
+
+            {
+                test: /\.(woff|woff2|eot|ttf|svg)$/,
+                exclude: /node_modules/,
+                loader: 'file-loader',
+                options: {
+                    limit: 1024,
+                    name: '[name].[ext]',
+                    publicPath: '/assets/fonts/',
+                    outputPath: '/assets/fonts/'
+                }
+            },
+
+
             {
                 test: /\.(png|jpg|gif)$/i,
                 use: [

@@ -6,9 +6,8 @@ Final Project for CodersLab JavaScrip+React course
 * React
 * CSS and Sass
 * Bootstrap
-* Gulp (for Sass)
-* Webpack (for js)
-* REST API
+* Webpack (for configuration)
+* REST API + WebSocket API
 * GitHub repository: Black Dashboard React `*`
 
 
