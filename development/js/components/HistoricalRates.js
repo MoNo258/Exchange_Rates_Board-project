@@ -5,13 +5,6 @@ import {element} from "prop-types";
 
 
 const historicalRates = () => {
-    // const [currency, setCurrency] = useState('EUR'); //
-    // const [historicalData, setHistoricalData] = useState([]);
-    // // const [currentDate, setCurrentDate] = useState(new Date());
-    // const [currencyTarget, setCurrencyTarget] = useState('');
-    // const [historicalEffectiveDateArray, setHistoricalEffectiveDateArray] = useState([]); //
-    // const [historicalRatesArray, setHistoricalRatesArray] = useState([]); //
-
 
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
@@ -20,33 +13,19 @@ const historicalRates = () => {
     const newCurrentDate = `${currentYear}-${currentMonth}-${currentDay}`;
 
     const histRatesAll = {
-        EUR: [],
-        USD: [],
-        GBP: []
+        EUR: {histRatesArray: [], effDateArray: []},
+        USD: {histRatesArray: [], effDateArray: []},
+        GBP: {histRatesArray: [], effDateArray: []}
     };
 
-    console.log(histRatesAll)
-    console.log(Object.keys(histRatesAll).length)
-    console.log(Object.keys(histRatesAll))
-    console.log(Object.keys(histRatesAll)[0])
+    // console.log(histRatesAll)
+    // console.log(Object.keys(histRatesAll).length)
+    // console.log(Object.keys(histRatesAll))
+    // console.log(Object.keys(histRatesAll)[0])
 
-    //var resultFound = false;
-    //
-    // var fetchNow = function() {
-    //   fetch('some/address').then(function() {
-    //     if(someCondition) {
-    //       resultFound = true;
-    //     }
-    //     else {
-    //       fetchNow();
-    //     }
-    //   });
-    // }
-    //
-    // fetchNow();
 
     let getHistRates = () => {
-        return Object.keys(histRatesAll).forEach( curr => {
+         Object.keys(histRatesAll).forEach( curr => {
             fetch(`http://api.nbp.pl/api/exchangerates/rates/A/${curr}/2020-01-01/${newCurrentDate}/`, {
                 method: 'GET'
             })
@@ -55,50 +34,36 @@ const historicalRates = () => {
                     // console.log(resp)
                     return resp.json()
                 })
-                .then(data => {
-                    curr = data.rates.slice(0);
-                })
-                .then(() => {
-                    const histRatesArray = [];
-                    const effDateArray = [];
-                    curr.forEach(element => histRatesArray.push(element.mid));
-                    curr.forEach(element => effDateArray.push(element.effectiveDate));
-                    console.log(histRatesArray, effDateArray)
-                    return {histRatesArray: histRatesArray, effDateArray: effDateArray}
+                // .then(data => {
+                //     return data.rates.slice(0);
+                // })
+                .then((data) => {
+                    // const histRatesArray = [];
+                    // const effDateArray = [];
+                    // console.log(data);
+                    data.rates.forEach(element => histRatesAll[curr].histRatesArray.push(element.mid));
+                     // = histRatesArray.slice(0);
+
+                    // console.log(curr);
+                    data.rates.forEach(element => histRatesAll[curr].effDateArray.push(element.effectiveDate));
+
+                    // histRatesAll.curr.effDateArray = effDateArray;
+                    // histRatesAll.EUR.concat(effDateArray);
+
+                    // console.log(histRatesArray, effDateArray)
+                    console.log('this is it:');
+                    // console.log( histRatesAll);
+                    // return {histRatesArray: histRatesArray, effDateArray: effDateArray}
+
                 })
                 .catch(error => console.log(error));
 
-
-
         })
-    }
+        return histRatesAll;
+    };
 
 
-    // const getHistRates = (curr) => {
-    //     return fetch(`http://api.nbp.pl/api/exchangerates/rates/A/${curr}/2020-01-01/${newCurrentDate}/`, {
-    //         method: 'GET'
-    //     })
-    //         .then(resp => {
-    //             // console.log(resp)
-    //             return resp.json()
-    //         })
-    //         .then(data => {
-    //             histRatesAll.curr = data.rates.slice(0);
-    //         })
-    //         .then(() => {
-    //             const histRatesArray = [];
-    //             const effDateArray = [];
-    //             histRatesAll.curr.forEach(element => histRatesArray.push(element.mid));
-    //             histRatesAll.curr.forEach(element => effDateArray.push(element.effectiveDate));
-    //             return {histRatesArray: histRatesArray, effDateArray: effDateArray}
-    //         })
-    //         .catch(error => console.log(error));
-    // }
-
-
-
-
-
+    // console.log(getHistRates());
     return getHistRates();
 
 
