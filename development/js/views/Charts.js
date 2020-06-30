@@ -50,7 +50,7 @@ import {
 } from "../variables/charts";
 
 
-class Notifications extends React.Component {
+class Charts extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -104,4 +104,4 @@ class Notifications extends React.Component {
     }
 }
 
-export default Notifications;
+export default Charts;

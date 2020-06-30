@@ -22,7 +22,7 @@
 // chartExample1 and chartExample2 options
 
 
-import historicalRates from "../components/HistoricalRates";
+import historicalRates from "../services/historicalRates";
 
 // let chartExample1 = {};
 
