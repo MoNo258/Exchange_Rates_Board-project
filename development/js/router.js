@@ -29,7 +29,6 @@ var routes = [
     {
         path: "/dashboard",
         name: "Dashboard",
-        rtlName: "rtlName",
         icon: "tim-icons icon-chart-pie-36",
         component: Dashboard,
         layout: "/main"
@@ -53,7 +52,6 @@ var routes = [
     {
         path: "/notifications",
         name: "Notifications",
-        rtlName: "rtlName",
         icon: "tim-icons icon-bell-55",
         component: Notifications,
         layout: "/main"
@@ -61,7 +59,6 @@ var routes = [
     {
         path: "/user-profile",
         name: "User Profile",
-        rtlName: "rtlName",
         icon: "tim-icons icon-single-02",
         component: UserProfile,
         layout: "/main"
@@ -69,7 +66,6 @@ var routes = [
     {
         path: "/tables",
         name: "Table List",
-        rtlName: "rtlName",
         icon: "tim-icons icon-puzzle-10",
         component: TableList,
         layout: "/main"
@@ -77,7 +73,6 @@ var routes = [
     {
         path: "/typography",
         name: "Typography",
-        rtlName: "rtlName",
         icon: "tim-icons icon-align-center",
         component: Typography,
         layout: "/main"
@@ -85,8 +80,7 @@ var routes = [
     {
         path: "/news",
         name: "News",
-        rtlName: "rtlName",
-        icon: "tim-icons icon-align-center",
+        icon: "tim-icons icon-world",
         component: News,
         layout: "/main"
     },

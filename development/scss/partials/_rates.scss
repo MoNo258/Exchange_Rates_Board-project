@@ -14,3 +14,9 @@
 .value-stable{
   color: $color-stable;
 }
+
+
+#sidebar-wrapper--custom{
+  @include linear-gradient(darken(#325CF5, 20%), #325AF4);
+  border-radius: 5px;
+}

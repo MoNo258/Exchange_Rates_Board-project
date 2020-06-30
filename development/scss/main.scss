@@ -3,6 +3,7 @@
 
 @import "settings/mixins";
 @import "settings/variables";
+
 //import of styles from black-dashboard-react created by Creative Tim
 //=========================================================
 //* Black Dashboard React v1.1.0
@@ -16,44 +17,13 @@
 //
 //=========================================================
 @import "~black-dashboard-react/src/assets/scss/black-dashboard-react";
+@import "settings/icons";
+
+
 @import "partials/rates";
 
 
 
-#sidebar-wrapper--custom{
-  @include linear-gradient(darken(#325CF5, 20%), #325AF4);
-  border-radius: 5px;
-}
 
 
 
-// partials
-//for index.html
-//@import "partials/header";
-//@import "partials/banner";
-//@import "partials/footer";
-
-//for app.html
-//@import "partials/mainApp";
-//@import "partials/headerApp";
-//@import "partials/navApp";
-
-
-
-
-* {
-  box-sizing: border-box;
-  //background-color: #54534f;
-}
-
-
-
-//body{
-//  background-color: $color-background;
-//  font-family: $font-open-sans;
-//}
-//
-//.container{
-//  width: 1440px;
-//  margin: 0 auto;
-//}
