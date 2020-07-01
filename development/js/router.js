@@ -25,6 +25,7 @@ import Typography from "./views/Typography.js";
 import UserProfile from "./views/UserProfile.js";
 import News from "./views/News";
 import SignIn from "./views/SignIn";
+import Login from "./views/Login";
 
 var routes = [
     {
@@ -64,6 +65,14 @@ var routes = [
         name: "Sign In",
         icon: "tim-icons icon-single-02",
         component: SignIn,
+        layout: "/main"
+    },
+
+    {
+        path: "/login",
+        name: "Login",
+        icon: "tim-icons icon-single-02",
+        component: Login,
         layout: "/main"
     },
 

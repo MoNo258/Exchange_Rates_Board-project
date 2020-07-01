@@ -37,21 +37,15 @@ import {
     Modal
 } from "reactstrap";
 
-export const SignIn = () => {
+export const Login = () => {
     // const [modalUser, setModalUser] = useState(true);
     const [user, setUser] = useState({
         username: '',
-        email: '',
-        name: '',
-        surname: '',
-        password: '',
-        gender: 'female',
-        address: ''
+        password: ''
     });
-    const [passwordRepeat, setPasswordRepeat] = useState("");
     const [errors, setErrors] = useState([]);
 
-    const handleChangeUserData = e => {
+    const handleInputUserData = e => {
         const {name, value} = e.target;
         setUser(prev => ({
                 ...prev,
@@ -66,20 +60,9 @@ export const SignIn = () => {
         if (user.username.length < 2) {
             newErrors.push("Username is too short")
         }
-        if (user.email.length < 3 && !user.email.includes("@")) {
-            newErrors.push("Wrong email address")
-        }
         if (user.password.length < 4) {
             newErrors.push("Password is too short")
         }
-        if (user.password !== passwordRepeat) {
-            newErrors.push("Passwords not match")
-        }
-        // if(user.postalcode.length < 5 || user.postCode.length > 6 || !user.postCode.match("^[0-9]{2}-[0-9]{3}$")){ newErrors.push("Wrong post code")}
-        if (user.address.length < 2) {
-            newErrors.push("City is too short")
-        }
-
         setErrors(newErrors);
         if (newErrors.length > 0) return false;
         // sendForm();
@@ -99,7 +82,7 @@ export const SignIn = () => {
             {/*<Modal*/}
             {/*    modalClassName="modal-search"*/}
             {/*    isOpen={modalUser}*/}
-            {/*    toggle={toggleModalUser}*/}
+            {/*    // toggle={toggleModalUser}*/}
             {/*>*/}
             {/*    <div className="modal-header">*/}
             {/*        /!*<Input id="inlineFormInputGroup" placeholder="SEARCH" type="text" />*!/*/}
@@ -108,7 +91,7 @@ export const SignIn = () => {
             {/*            className="close"*/}
             {/*            data-dismiss="modal"*/}
             {/*            type="button"*/}
-            {/*            onClick={toggleModalUser}*/}
+            {/*            // onClick={toggleModalUser}*/}
             {/*        >*/}
             {/*            <i className="tim-icons icon-simple-remove"/>*/}
             {/*        </button>*/}
@@ -119,7 +102,7 @@ export const SignIn = () => {
                     <Col md="8">
                         <Card>
                             <CardHeader>
-                                <h5 className="title">Create Profile - Register</h5>
+                                <h5 className="title">Login to account</h5>
                             </CardHeader>
                             <CardBody>
                                 <Form onSubmit={handleSubmit}>
@@ -135,75 +118,15 @@ export const SignIn = () => {
                                             <FormGroup>
                                                 <label>Username</label>
                                                 <Input placeholder="Username" type="text" name={"username"} value={user.username}
-                                                       onChange={handleChangeUserData}
+                                                       onChange={handleInputUserData}
                                                 />
                                             </FormGroup>
                                         </Col>
-                                        <Col className="pl-md-1" md="6">
-                                            <FormGroup>
-                                                <label htmlFor="exampleInputEmail1">
-                                                    Email address
-                                                </label>
-                                                <Input placeholder="mail@mail.com" type="email" name={"email"} value={user.email}
-                                                       onChange={handleChangeUserData}
-                                                />
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
-
-                                    <Row>
                                         <Col className="px-md-1" md="6">
                                             <FormGroup>
                                                 <label>Password</label>
                                                 <Input placeholder="Password" type="password" name={"password"} value={user.password}
-                                                       onChange={handleChangeUserData}
-                                                />
-                                            </FormGroup>
-                                        </Col>
-                                        <Col className="px-md-1" md="6">
-                                            <FormGroup>
-                                                <label>Repeat Password</label>
-                                                <Input placeholder="Repeat Password" type="password" name={"passwordRepeat"} value={passwordRepeat}
-                                                       onChange={e => setPasswordRepeat(e.target.value)}
-                                                />
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
-
-                                    <Row>
-                                        <Col className="pr-md-1" md="6">
-                                            <FormGroup>
-                                                <label>First Name</label>
-                                                <Input placeholder="First Name" type="text" name={"name"} value={user.name}
-                                                       onChange={handleChangeUserData}
-                                                />
-                                            </FormGroup>
-                                        </Col>
-                                        <Col className="pl-md-1" md="6">
-                                            <FormGroup>
-                                                <label>Last Name</label>
-                                                <Input placeholder="Last Name" type="text" name={"surname"} value={user.surname}
-                                                       onChange={handleChangeUserData}
-                                                />
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col md="3">
-                                            <FormGroup>
-                                                <Label for="gender">Gender</Label>
-                                                <Input type="select" name="gender" value={user.gender}
-                                                       onChange={handleChangeUserData} id="gender">
-                                                    <option value={"female"}>Female</option>
-                                                    <option value={"male"}>Male</option>
-                                                </Input>
-                                            </FormGroup>
-                                        </Col>
-                                        <Col md="9">
-                                            <FormGroup>
-                                                <label>Address</label>
-                                                <Input placeholder="Home Address" type="text" name={"address"} value={user.address}
-                                                       onChange={handleChangeUserData}
+                                                       onChange={handleInputUserData}
                                                 />
                                             </FormGroup>
                                         </Col>
@@ -212,19 +135,17 @@ export const SignIn = () => {
                                     <Row>
                                         <Col md="12">
                                             <Button className="btn-fill" color="primary" type="submit">
-                                                Register
+                                                Login
                                             </Button>
                                         </Col>
                                     </Row>
                                 </Form>
                             </CardBody>
                             <CardFooter>
-                                <div className="typography-line"><span>You must register yourself to customize views</span></div>
+                                <div className="typography-line"><span>Please login to your account</span></div>
                             </CardFooter>
                         </Card>
                     </Col>
-
-
                     <Col md='2'/>
                 </Row>
             </div>
@@ -234,4 +155,4 @@ export const SignIn = () => {
 }
 
 
-export default SignIn;
+export default Login;

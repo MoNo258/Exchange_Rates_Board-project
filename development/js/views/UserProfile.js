@@ -15,7 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React, {useState} from "react";
 
 // reactstrap components
 import {
@@ -29,184 +29,171 @@ import {
     Form,
     Input,
     Row,
-    Col
+    Col, Alert, Label
 } from "reactstrap";
 
-class UserProfile extends React.Component {
-    render() {
-        return (
-            <>
-                <div className="content">
-                    <Row>
-                        <Col md="8">
-                            <Card>
-                                <CardHeader>
-                                    <h5 className="title">Edit Profile</h5>
-                                </CardHeader>
-                                <CardBody>
-                                    <Form>
-                                        <Row>
-                                            <Col className="pr-md-1" md="5">
-                                                <FormGroup>
-                                                    <label>Company (disabled)</label>
-                                                    <Input
-                                                        defaultValue="Creative Code Inc."
-                                                        disabled
-                                                        placeholder="Company"
-                                                        type="text"
-                                                    />
-                                                </FormGroup>
-                                            </Col>
-                                            <Col className="px-md-1" md="3">
-                                                <FormGroup>
-                                                    <label>Username</label>
-                                                    <Input
-                                                        defaultValue="michael23"
-                                                        placeholder="Username"
-                                                        type="text"
-                                                    />
-                                                </FormGroup>
-                                            </Col>
-                                            <Col className="pl-md-1" md="4">
-                                                <FormGroup>
-                                                    <label htmlFor="exampleInputEmail1">
-                                                        Email address
-                                                    </label>
-                                                    <Input placeholder="mike@email.com" type="email" />
-                                                </FormGroup>
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col className="pr-md-1" md="6">
-                                                <FormGroup>
-                                                    <label>First Name</label>
-                                                    <Input
-                                                        defaultValue="Mike"
-                                                        placeholder="Company"
-                                                        type="text"
-                                                    />
-                                                </FormGroup>
-                                            </Col>
-                                            <Col className="pl-md-1" md="6">
-                                                <FormGroup>
-                                                    <label>Last Name</label>
-                                                    <Input
-                                                        defaultValue="Andrew"
-                                                        placeholder="Last Name"
-                                                        type="text"
-                                                    />
-                                                </FormGroup>
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col md="12">
-                                                <FormGroup>
-                                                    <label>Address</label>
-                                                    <Input
-                                                        defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
-                                                        placeholder="Home Address"
-                                                        type="text"
-                                                    />
-                                                </FormGroup>
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col className="pr-md-1" md="4">
-                                                <FormGroup>
-                                                    <label>City</label>
-                                                    <Input
-                                                        defaultValue="Mike"
-                                                        placeholder="City"
-                                                        type="text"
-                                                    />
-                                                </FormGroup>
-                                            </Col>
-                                            <Col className="px-md-1" md="4">
-                                                <FormGroup>
-                                                    <label>Country</label>
-                                                    <Input
-                                                        defaultValue="Andrew"
-                                                        placeholder="Country"
-                                                        type="text"
-                                                    />
-                                                </FormGroup>
-                                            </Col>
-                                            <Col className="pl-md-1" md="4">
-                                                <FormGroup>
-                                                    <label>Postal Code</label>
-                                                    <Input placeholder="ZIP Code" type="number" />
-                                                </FormGroup>
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col md="8">
-                                                <FormGroup>
-                                                    <label>About Me</label>
-                                                    <Input
-                                                        cols="80"
-                                                        defaultValue="Lamborghini Mercy, Your chick she so thirsty, I'm in
-                            that two seat Lambo."
-                                                        placeholder="Here can be your description"
-                                                        rows="4"
-                                                        type="textarea"
-                                                    />
-                                                </FormGroup>
-                                            </Col>
-                                        </Row>
-                                    </Form>
-                                </CardBody>
-                                <CardFooter>
-                                    <Button className="btn-fill" color="primary" type="submit">
-                                        Save
-                                    </Button>
-                                </CardFooter>
-                            </Card>
-                        </Col>
-                        <Col md="4">
-                            <Card className="card-user">
-                                <CardBody>
-                                    <CardText />
-                                    <div className="author">
-                                        <div className="block block-one" />
-                                        <div className="block block-two" />
-                                        <div className="block block-three" />
-                                        <div className="block block-four" />
-                                        <a href="#pablo" onClick={e => e.preventDefault()}>
-                                            <img
-                                                alt="..."
-                                                className="avatar"
-                                                src={require("../../assets/images/logo.png")}
-                                            />
-                                            <h5 className="title">Mike Andrew</h5>
-                                        </a>
-                                        <p className="description">Ceo/Co-Founder</p>
-                                    </div>
-                                    <div className="card-description">
-                                        Do not be scared of the truth because we need to restart the
-                                        human foundation in truth And I love you like Kanye loves
-                                        Kanye I love Rick Owens’ bed design but the back is...
-                                    </div>
-                                </CardBody>
-                                <CardFooter>
-                                    <div className="button-container">
-                                        <Button className="btn-icon btn-round" color="facebook">
-                                            <i className="fab fa-facebook" />
-                                        </Button>
-                                        <Button className="btn-icon btn-round" color="twitter">
-                                            <i className="fab fa-twitter" />
-                                        </Button>
-                                        <Button className="btn-icon btn-round" color="google">
-                                            <i className="fab fa-google-plus" />
-                                        </Button>
-                                    </div>
-                                </CardFooter>
-                            </Card>
-                        </Col>
-                    </Row>
-                </div>
-            </>
+export const UserProfile = () => {
+    const [user, setUser] = useState({
+        username: '',
+        email: '',
+        name: '',
+        surname: '',
+        gender: 'Female',
+        address: '',
+        aboutMe: 'You might wanna give it another shot it needs to be the same, but totally different or submit your meaningless business jargon to be used on the site!'
+    });
+    const [errors, setErrors] = useState([]);
+
+    const handleEditUserData = e => {
+        const {name, value} = e.target;
+        setUser(prev => ({
+                ...prev,
+                [name]: value
+            })
         );
-    }
+    };
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        const newErrors = [];
+        if (user.username.length < 2) {
+            newErrors.push("Username is too short")
+        }
+        if (user.email.length < 3 && !user.email.includes("@")) {
+            newErrors.push("Wrong email address")
+        }
+        if (user.password.length < 4) {
+            newErrors.push("Password is too short")
+        }
+        if (user.password !== passwordRepeat) {
+            newErrors.push("Passwords not match")
+        }
+        // if(user.postalcode.length < 5 || user.postCode.length > 6 || !user.postCode.match("^[0-9]{2}-[0-9]{3}$")){ newErrors.push("Wrong post code")}
+        if (user.address.length < 2) {
+            newErrors.push("City is too short")
+        }
+
+        setErrors(newErrors);
+        if (newErrors.length > 0) return false;
+        // sendForm();
+    };
+
+
+    return (
+        <>
+            <div className="content">
+                <Row>
+                    <Col md="2">
+                    </Col>
+                    <Col md="8">
+                        <Card>
+                            <CardHeader>
+                                <h5 className="title">Edit Profile</h5>
+                            </CardHeader>
+                            <CardBody>
+                                <Form onSubmit={handleSubmit}>
+                                    <Row>
+                                        <Col md="12">
+                                            {errors.length > 0 &&
+                                            <div> {errors.map((error, id) => <Alert className="warning-new" color="warning" key={id}>{error}</Alert>)} </div>}
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col className="px-md-1" md="6">
+                                            <FormGroup>
+                                                <label>Username</label>
+                                                <Input placeholder="Username" type="text" name={"username"} value={user.username}
+                                                       onChange={handleEditUserData}
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                        <Col className="pl-md-1" md="6">
+                                            <FormGroup>
+                                                <label htmlFor="exampleInputEmail1">
+                                                    Email address
+                                                </label>
+                                                <Input placeholder="user23@mail.com" type="email" name={"email"} value={user.email}
+                                                       onChange={handleEditUserData}
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col className="pr-md-1" md="6">
+                                            <FormGroup>
+                                                <label>First Name</label>
+                                                <Input placeholder="First Name" type="text" name={"name"} value={user.name}
+                                                       onChange={handleEditUserData}
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                        <Col className="pl-md-1" md="6">
+                                            <FormGroup>
+                                                <label>Last Name</label>
+                                                <Input placeholder="Last Name" type="text" name={"surname"} value={user.surname}
+                                                       onChange={handleEditUserData}
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col md="3">
+                                            <FormGroup>
+                                                <Label for="gender">Gender</Label>
+                                                <Input type="select" name="gender" value={user.gender}
+                                                       onChange={handleEditUserData} id="gender">
+                                                    <option value={"female"}>Female</option>
+                                                    <option value={"male"}>Male</option>
+                                                </Input>
+                                            </FormGroup>
+                                        </Col>
+                                        <Col md="9">
+                                            <FormGroup>
+                                                <label>Address</label>
+                                                <Input placeholder="Home Address" type="text" name={"address"} value={user.address}
+                                                       onChange={handleEditUserData}
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col md="8">
+                                            <FormGroup>
+                                                <label>About Me</label>
+                                                <Input
+                                                    cols="80"
+                                                    placeholder="Here can be your description"
+                                                    rows="4"
+                                                    type="textarea"
+                                                    name={"aboutMe"}
+                                                    value={user.aboutMe}
+                                                    onChange={handleEditUserData}
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Col md="12">
+                                            <Button className="btn-fill" color="primary" type="submit">
+                                                Edit
+                                            </Button>
+                                        </Col>
+                                    </Row>
+                                </Form>
+                            </CardBody>
+                            <CardFooter>
+                                <div className="typography-line"><span>You can edit your profile anytime you need</span>
+                                </div>
+                            </CardFooter>
+                        </Card>
+                    </Col>
+                    <Col md="2">
+                    </Col>
+                </Row>
+            </div>
+        </>
+    );
+
 }
 
 export default UserProfile;
