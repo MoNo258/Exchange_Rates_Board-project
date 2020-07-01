@@ -7,3 +7,7 @@ export const API_KEY_REST = '?access_key=c02b87d109a928029679584b8d27fb65';
 
 export const base_REST = '&base=EUR'; //optional //looks like only EUR is free. also EUR is default value (no need to provide this part at all)
 export const symbols_API_REST = 'USD,AUD,CAD'; //optional //quote currencies (against base)
+
+//API NBP
+export const API_NBP = 'http://api.nbp.pl/api/exchangerates/tables/C';
+
