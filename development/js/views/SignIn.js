@@ -15,10 +15,11 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React, {useState} from "react";
+import React, {useState, useEffect} from 'react';
 
 // reactstrap components
 import {
+    Alert,
     Button,
     Card,
     CardHeader,
@@ -28,23 +29,29 @@ import {
     FormGroup,
     Form,
     Input,
+    Label,
+    ListGroup,
+    ListGroupItem,
     Row,
-    Col, Alert, Label
+    Col,
+    Modal
 } from "reactstrap";
 
-export const UserProfile = () => {
+export const SignIn = () => {
+    // const [modalUser, setModalUser] = useState(true);
     const [user, setUser] = useState({
         username: '',
         email: '',
         name: '',
         surname: '',
-        gender: 'Female',
-        address: '',
-        aboutMe: 'You might wanna give it another shot it needs to be the same, but totally different or submit your meaningless business jargon to be used on the site!'
+        password: '',
+        gender: 'female',
+        address: ''
     });
+    const [passwordRepeat, setPasswordRepeat] = useState("");
     const [errors, setErrors] = useState([]);
 
-    const handleEditUserData = e => {
+    const handleChangeUserData = e => {
         const {name, value} = e.target;
         setUser(prev => ({
                 ...prev,
@@ -79,23 +86,48 @@ export const UserProfile = () => {
     };
 
 
+    // // this function is to open the Search modal
+    // const toggleModalUser = () => {
+    //     setModalUser({
+    //         modalUser: !modalUser
+    //     });
+    // };
+
+
     return (
         <>
+            {/*<Modal*/}
+            {/*    modalClassName="modal-search"*/}
+            {/*    isOpen={modalUser}*/}
+            {/*    toggle={toggleModalUser}*/}
+            {/*>*/}
+            {/*    <div className="modal-header">*/}
+            {/*        /!*<Input id="inlineFormInputGroup" placeholder="SEARCH" type="text" />*!/*/}
+            {/*        <button*/}
+            {/*            aria-label="Close"*/}
+            {/*            className="close"*/}
+            {/*            data-dismiss="modal"*/}
+            {/*            type="button"*/}
+            {/*            onClick={toggleModalUser}*/}
+            {/*        >*/}
+            {/*            <i className="tim-icons icon-simple-remove"/>*/}
+            {/*        </button>*/}
+            {/*    </div>*/}
             <div className="content">
                 <Row>
-                    <Col md="2">
-                    </Col>
+                    <Col md='2'/>
                     <Col md="8">
                         <Card>
                             <CardHeader>
-                                <h5 className="title">Edit Profile</h5>
+                                <h5 className="title">Create Profile - Register</h5>
                             </CardHeader>
                             <CardBody>
                                 <Form onSubmit={handleSubmit}>
                                     <Row>
                                         <Col md="12">
-                                            {errors.length > 0 &&
-                                            <div> {errors.map((error, id) => <Alert className="warning-new" color="warning" key={id}>{error}</Alert>)} </div>}
+                                            {/*{errors.length > 0 && <ul> {errors.map( (err, index) => <li key={index}>{err}</li>)} </ul>}*/}
+                                            {/*{ errors.length > 0 && <ListGroup> { errors.map( (error, id) => <ListGroupItem key={id}>{error}</ListGroupItem>) } </ListGroup> }*/}
+                                            { errors.length > 0 &&  <div > { errors.map( (error, id) => <Alert className="warning-new" color="warning" key={id}>{error}</Alert>) } </div> }
                                         </Col>
                                     </Row>
                                     <Row>
@@ -103,7 +135,7 @@ export const UserProfile = () => {
                                             <FormGroup>
                                                 <label>Username</label>
                                                 <Input placeholder="Username" type="text" name={"username"} value={user.username}
-                                                       onChange={handleEditUserData}
+                                                       onChange={handleChangeUserData}
                                                 />
                                             </FormGroup>
                                         </Col>
@@ -112,18 +144,38 @@ export const UserProfile = () => {
                                                 <label htmlFor="exampleInputEmail1">
                                                     Email address
                                                 </label>
-                                                <Input placeholder="user23@mail.com" type="email" name={"email"} value={user.email}
-                                                       onChange={handleEditUserData}
+                                                <Input placeholder="mail@mail.com" type="email" name={"email"} value={user.email}
+                                                       onChange={handleChangeUserData}
                                                 />
                                             </FormGroup>
                                         </Col>
                                     </Row>
+
+                                    <Row>
+                                        <Col className="px-md-1" md="6">
+                                            <FormGroup>
+                                                <label>Password</label>
+                                                <Input placeholder="Password" type="password" name={"password"} value={user.password}
+                                                       onChange={handleChangeUserData}
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                        <Col className="px-md-1" md="6">
+                                            <FormGroup>
+                                                <label>Repeat Password</label>
+                                                <Input placeholder="Repeat Password" type="password" name={"passwordRepeat"} value={passwordRepeat}
+                                                       onChange={e => setPasswordRepeat(e.target.value)}
+                                                />
+                                            </FormGroup>
+                                        </Col>
+                                    </Row>
+
                                     <Row>
                                         <Col className="pr-md-1" md="6">
                                             <FormGroup>
                                                 <label>First Name</label>
                                                 <Input placeholder="First Name" type="text" name={"name"} value={user.name}
-                                                       onChange={handleEditUserData}
+                                                       onChange={handleChangeUserData}
                                                 />
                                             </FormGroup>
                                         </Col>
@@ -131,7 +183,7 @@ export const UserProfile = () => {
                                             <FormGroup>
                                                 <label>Last Name</label>
                                                 <Input placeholder="Last Name" type="text" name={"surname"} value={user.surname}
-                                                       onChange={handleEditUserData}
+                                                       onChange={handleChangeUserData}
                                                 />
                                             </FormGroup>
                                         </Col>
@@ -141,7 +193,7 @@ export const UserProfile = () => {
                                             <FormGroup>
                                                 <Label for="gender">Gender</Label>
                                                 <Input type="select" name="gender" value={user.gender}
-                                                       onChange={handleEditUserData} id="gender">
+                                                       onChange={handleChangeUserData} id="gender">
                                                     <option value={"female"}>Female</option>
                                                     <option value={"male"}>Male</option>
                                                 </Input>
@@ -151,49 +203,35 @@ export const UserProfile = () => {
                                             <FormGroup>
                                                 <label>Address</label>
                                                 <Input placeholder="Home Address" type="text" name={"address"} value={user.address}
-                                                       onChange={handleEditUserData}
+                                                       onChange={handleChangeUserData}
                                                 />
                                             </FormGroup>
                                         </Col>
                                     </Row>
-                                    <Row>
-                                        <Col md="8">
-                                            <FormGroup>
-                                                <label>About Me</label>
-                                                <Input
-                                                    cols="80"
-                                                    placeholder="Here can be your description"
-                                                    rows="4"
-                                                    type="textarea"
-                                                    name={"aboutMe"}
-                                                    value={user.aboutMe}
-                                                    onChange={handleEditUserData}
-                                                />
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
+
                                     <Row>
                                         <Col md="12">
                                             <Button className="btn-fill" color="primary" type="submit">
-                                                Edit
+                                                Register
                                             </Button>
                                         </Col>
                                     </Row>
                                 </Form>
                             </CardBody>
                             <CardFooter>
-                                <div className="typography-line"><span>You can edit your profile anytime you need</span>
-                                </div>
+                                <div className="typography-line"><span>You must register yourself to customize views</span></div>
                             </CardFooter>
                         </Card>
                     </Col>
-                    <Col md="2">
-                    </Col>
+
+
+                    <Col md='2'/>
                 </Row>
             </div>
+            {/*</Modal>*/}
         </>
     );
-
 }
 
-export default UserProfile;
+
+export default SignIn;

@@ -20,3 +20,11 @@
   @include linear-gradient(darken(#325CF5, 20%), #325AF4);
   border-radius: 5px;
 }
+
+.warning-new{
+  background-color: var(--warning-new);
+}
+
+#warning-new{
+  background-color: var(--warning-new);
+}
