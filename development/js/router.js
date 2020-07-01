@@ -24,6 +24,7 @@ import TableList from "./views/TableList.js";
 import Typography from "./views/Typography.js";
 import UserProfile from "./views/UserProfile.js";
 import News from "./views/News";
+import SignIn from "./views/SignIn";
 
 var routes = [
     {
@@ -56,6 +57,16 @@ var routes = [
         component: Charts,
         layout: "/main"
     },
+
+
+    {
+        path: "/sign-in",
+        name: "Sign In",
+        icon: "tim-icons icon-single-02",
+        component: SignIn,
+        layout: "/main"
+    },
+
     {
         path: "/user-profile",
         name: "User Profile",

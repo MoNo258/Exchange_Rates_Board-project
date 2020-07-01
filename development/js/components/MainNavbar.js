@@ -42,7 +42,6 @@ class MainNavbar extends React.Component {
         super(props);
         this.state = {
             collapseOpen: false,
-            modalSearch: false,
             color: "navbar-transparent"
         };
     }
@@ -79,12 +78,8 @@ class MainNavbar extends React.Component {
             collapseOpen: !this.state.collapseOpen
         });
     };
-    // this function is to open the Search modal
-    toggleModalSearch = () => {
-        this.setState({
-            modalSearch: !this.state.modalSearch
-        });
-    };
+
+
     render() {
         return (
             <>
@@ -129,61 +124,6 @@ class MainNavbar extends React.Component {
                         </button>
                         <Collapse navbar isOpen={this.state.collapseOpen}>
                             <Nav className="ml-auto" navbar>
-                                {/*<InputGroup className="search-bar">*/}
-                                {/*    <Button*/}
-                                {/*        color="link"*/}
-                                {/*        data-target="#searchModal"*/}
-                                {/*        data-toggle="modal"*/}
-                                {/*        id="search-button"*/}
-                                {/*        onClick={this.toggleModalSearch}*/}
-                                {/*    >*/}
-                                {/*        <i className="tim-icons icon-zoom-split" />*/}
-                                {/*        <span className="d-lg-none d-md-block">Search</span>*/}
-                                {/*    </Button>*/}
-                                {/*</InputGroup>*/}
-                                <UncontrolledDropdown nav>
-                                    <DropdownToggle
-                                        caret
-                                        color="default"
-                                        data-toggle="dropdown"
-                                        nav
-                                    >
-                                        <div className="notification d-none d-lg-block d-xl-block" />
-                                        <i className="fas fa-comment-dollar"></i>
-                                        <i className="far fa-envelope"></i>
-                                        {/*<i className="tim-icons icon-sound-wave" />*/}
-                                        {/*<img src="https://cdn.pixabay.com/photo/2015/06/01/09/31/mail-793081_960_720.png" alt="mail icon"/>*/}
-                                        {/*<img width="30" height="20" src="https://cdn.pixabay.com/photo/2014/03/25/16/54/mail-297542_960_720.png" alt="mail icon"/>*/}
-                                        <p className="d-lg-none">Notifications</p>
-                                    </DropdownToggle>
-                                    <DropdownMenu className="dropdown-navbar" right tag="ul">
-                                        <NavLink tag="li">
-                                            <DropdownItem className="nav-item">
-                                                Mike John responded to your email
-                                            </DropdownItem>
-                                        </NavLink>
-                                        <NavLink tag="li">
-                                            <DropdownItem className="nav-item">
-                                                You have 5 more tasks
-                                            </DropdownItem>
-                                        </NavLink>
-                                        <NavLink tag="li">
-                                            <DropdownItem className="nav-item">
-                                                Your friend Michael is in town
-                                            </DropdownItem>
-                                        </NavLink>
-                                        <NavLink tag="li">
-                                            <DropdownItem className="nav-item">
-                                                Another notification
-                                            </DropdownItem>
-                                        </NavLink>
-                                        <NavLink tag="li">
-                                            <DropdownItem className="nav-item">
-                                                Another one
-                                            </DropdownItem>
-                                        </NavLink>
-                                    </DropdownMenu>
-                                </UncontrolledDropdown>
                                 <UncontrolledDropdown nav>
                                     <DropdownToggle
                                         caret
@@ -216,24 +156,6 @@ class MainNavbar extends React.Component {
                         </Collapse>
                     </Container>
                 </Navbar>
-                {/*<Modal*/}
-                {/*    modalClassName="modal-search"*/}
-                {/*    isOpen={this.state.modalSearch}*/}
-                {/*    toggle={this.toggleModalSearch}*/}
-                {/*>*/}
-                {/*    <div className="modal-header">*/}
-                {/*        <Input id="inlineFormInputGroup" placeholder="SEARCH" type="text" />*/}
-                {/*        <button*/}
-                {/*            aria-label="Close"*/}
-                {/*            className="close"*/}
-                {/*            data-dismiss="modal"*/}
-                {/*            type="button"*/}
-                {/*            onClick={this.toggleModalSearch}*/}
-                {/*        >*/}
-                {/*            <i className="tim-icons icon-simple-remove" />*/}
-                {/*        </button>*/}
-                {/*    </div>*/}
-                {/*</Modal>*/}
             </>
         );
     }
