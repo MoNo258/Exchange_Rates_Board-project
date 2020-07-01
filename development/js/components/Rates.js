@@ -82,8 +82,8 @@ const Rates = () => {
                         <CardBody>
                             <Row>
                                 {htmlRatesTags(0)}
-                                {htmlRatesTags(6)}
-                                {htmlRatesTags(11)}
+                                {htmlRatesTags(5)}
+                                {htmlRatesTags(10)}
                                 {htmlRatesTags(15)}
                             </Row>
                         </CardBody>

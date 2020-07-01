@@ -20,6 +20,7 @@ import classNames from "classnames";
 
 // react plugin for creating notifications over the dashboard
 import NotificationAlert from "react-notification-alert";
+
 import { Line, Bar } from "react-chartjs-2";
 // reactstrap components
 import {
@@ -48,6 +49,7 @@ import {
 import {
     chartExample1
 } from "../variables/charts";
+import historicalRates from "../services/historicalRates";
 
 
 class Charts extends React.Component {
@@ -57,9 +59,19 @@ class Charts extends React.Component {
             bigChartDataArray: {
                 EUR: "data1",
                 USD: "data2",
-                GBP: "data3" }
+                GBP: "data3"
+            },
+            dataForChart: false
         };
     }
+
+    // //for new approach
+    // componentDidMount() {
+    //     historicalRates.getRates("EUR", (data) => {
+    //         // update dataForChart
+    //
+    //     })
+    // }
 
     htmlChart = (currency) => {
         return(
@@ -76,10 +88,12 @@ class Charts extends React.Component {
                         </CardHeader>
                         <CardBody>
                             <div className="chart-area">
+
                                 <Line
                                     data={chartExample1[this.state.bigChartDataArray[currency]]}
                                     options={chartExample1.options}
                                 />
+
                             </div>
                         </CardBody>
                     </Card>

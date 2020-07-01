@@ -12,11 +12,33 @@ const historicalRates = () => {
         EUR: {histRatesArray: [], effDateArray: []},
         USD: {histRatesArray: [], effDateArray: []},
         GBP: {histRatesArray: [], effDateArray: []}
-    };
+    };//tu nie powinno byc trzymane to co mnie interesuje z API, Z API ma sie pobierac data.rates
+    //i ma NIE byc forEach
+    // ma byc tez successCallback, ktory bedzie przekazany dalej plus to ma byc klasa z methoda
+    //to co chce z API ma byc zalezne od STATE w komponencie Charts
+    //serwis pobiera dane i przeladowuje w config
+    // byla proba skorzystania z async i await, ale za duzo funkcji w funkcji i ForEach
+
+    // //for new approach
+    // let getHistRatesForCurrency = (currencyName, successCallback) => {
+    //
+    //     fetch(`http://api.nbp.pl/api/exchangerates/rates/A/${currencyName}/2020-01-01/${newCurrentDate}/`, {
+    //         method: 'GET'
+    //     })
+    //         .then(resp => {
+    //             // console.log(resp)
+    //             return resp.json()
+    //         })
+    //         .then((data) => {
+    //             successCallback(data.rates)
+    //             console.log('this is it:');
+    //         })
+    //         .catch(error => console.log(error));
+    // }
 
     let getHistRates = () => {
-        Object.keys(histRatesAll).forEach(curr => {
-            fetch(`http://api.nbp.pl/api/exchangerates/rates/A/${curr}/2020-01-01/${newCurrentDate}/`, {
+        Object.keys(histRatesAll).forEach(  curr => {
+             fetch(`http://api.nbp.pl/api/exchangerates/rates/A/${curr}/2020-01-01/${newCurrentDate}/`, {
                 method: 'GET'
             })
                 .then(resp => {
@@ -26,6 +48,7 @@ const historicalRates = () => {
                 .then((data) => {
                     data.rates.forEach(element => histRatesAll[curr].histRatesArray.push(element.mid));
                     data.rates.forEach(element => histRatesAll[curr].effDateArray.push(element.effectiveDate));
+
                     console.log('this is it:');
                 })
                 .catch(error => console.log(error));
