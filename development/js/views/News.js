@@ -1,22 +1,16 @@
 /*!
-
 =========================================================
 * Black Dashboard React v1.1.0
 =========================================================
-
 * Product Page: https://www.creative-tim.com/product/black-dashboard-react
 * Copyright 2020 Creative Tim (https://www.creative-tim.com)
 * Licensed under MIT (https://github.com/creativetimofficial/black-dashboard-react/blob/master/LICENSE.md)
-
 * Coded by Creative Tim
-
 =========================================================
-
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
 */
 import React, {useEffect, useState} from "react";
-
+import {USER_ID_XTB, USER_PSSWRD_XTB} from "../services/secret";
 // reactstrap components
 import {Card, CardHeader, CardBody, CardTitle, Row, Col} from "reactstrap";
 
@@ -33,8 +27,8 @@ const News = () => {
         let msg = {};
         msg.command = "login";
         let argumentsLogin = {};
-        argumentsLogin.userId = '11261225';
-        argumentsLogin.password = 'xoh14872';
+        argumentsLogin.userId = USER_ID_XTB;
+        argumentsLogin.password = USER_PSSWRD_XTB;
         msg.arguments = argumentsLogin;
         // console.log('Trying to log in as: ' + msg.arguments.userId);
         send(msg);
@@ -81,7 +75,7 @@ const News = () => {
         try {
             let msg = JSON.stringify(jsonMessage);
             ws.send(msg);
-            console.log('Sent ' + msg.length + ' bytes of data: ' + msg);
+            console.log('Sent ' + msg.length + ' bytes of data');
         } catch (Exception) {
             console.error('Error while sending data: ' + Exception.message);
         }
@@ -95,7 +89,7 @@ const News = () => {
         argumentsRequest.end = currDate;
         argumentsRequest.start = 1592859119182;
         msg.arguments = argumentsRequest;
-        console.log('Getting getNews');
+        // console.log('Getting getNews');
         // console.log('session ID:' + id);
         send(msg);
     };
