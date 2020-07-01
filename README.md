@@ -31,6 +31,22 @@ Final Project for CodersLab JavaScrip+React course
 
 # Useful info
 
+## General stuff
+
+1. Create file `secret.js` with keys and details for APIs
+    * create file: `development/js/services/secret.js`. Structure should be as follows:
+```JavaScript
+//API FIXER key
+export const KEY_FIXER = 'YOUR-KEY';
+
+//API XTB login & password
+export const USER_ID_XTB = 'YOUR-LOGIN-ID';
+export const USER_PSSWRD_XTB = 'YOUR-PASSWORD';
+```
+
+2. Create accounts for FIXER API and XTB API.
+
+
 ## Webpack stuff
 
 How to run app?
