@@ -42,6 +42,18 @@ export const KEY_FIXER = 'YOUR-KEY';
 //API XTB login & password
 export const USER_ID_XTB = 'YOUR-LOGIN-ID';
 export const USER_PSSWRD_XTB = 'YOUR-PASSWORD';
+
+//Firebase web app configuration
+// Your web app's Firebase configuration
+export const firebaseConfig = {
+    apiKey: 'YOUR_DATA',
+    authDomain: 'YOUR_DATA',
+    databaseURL: 'YOUR_DATA',
+    projectId: 'YOUR_DATA',
+    storageBucket: 'YOUR_DATA',
+    messagingSenderId: 'YOUR_DATA',
+    appId: 'YOUR_DATA'
+};
 ```
 
 2. Create accounts for FIXER API and XTB API.

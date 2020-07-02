@@ -1,10 +1,11 @@
 export class User {
     id = null;
-    fullname = '';
+    username = '';
+    name = ';';
+    surname = '';
     email = '';
     password = '';
-    sex = 'm';
-    street = '';
-    city = '';
-    postCode = '';
+    gender = 'female';
+    address = '';
+    aboutMe = '';
 }

@@ -33,14 +33,17 @@ build/
 ### SECRET data ###
 development/js/services/secret.js
 
-development/js/firebase/
 
 ### Used for tests only ###
 development/js/users.json
 development/js/db.json
+historicalRates.json
+development/js/services/UserApiService.js
+development/js/components/Register.js
+
 development/assets/black-dashboard-react/
 public/
-historicalRates.json
+
 
 development/assets/images/news.png
 development/assets/images/news2.png
