@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Card, CardBody, CardHeader, CardTitle, Col, Row, Table} from "reactstrap";
-import {API_KEY_REST, API_URL_REST, latest_REST, API_NBP} from "../services/constants";
-
-//http://data.fixer.io/api/latest?access_key=YOUR_ACCESS_KEY&base=EUR&symbols=USD,GBP,CHF,AUD,CAD,JPY,SEK,DKK,NOK,SEK,PLN,RON,BGN,HUF,CZK,INR,AED,ZAR,MAD,MXN
+import {API_NBP} from "../services/constants";
 
 //rates available in this API:
 //USD,AUD,CAD,EUR,HUF,CHF,GBP,JPY,CZK,DKK,NOK,SEK
