@@ -5,7 +5,7 @@ Final Project for CodersLab JavaScrip+React course
 * JavaScript ES6
 * React
 * CSS and Sass
-* Bootstrap
+* Bootstrap & reactstrap
 * Webpack (for configuration)
 * REST API + WebSocket API
 * GitHub repository: Black Dashboard React `*`
@@ -33,7 +33,9 @@ Final Project for CodersLab JavaScrip+React course
 
 ## General stuff
 
-1. Create file `secret.js` with keys and details for APIs
+1. Create accounts for FIXER API and XTB API.
+2. You need to create Firebase account and then project for web app that must be connected to this one (use Firebase tutorials).
+3. Create file `secret.js` with details for APIs and Firebase.
     * create file: `development/js/services/secret.js`. Structure should be as follows:
 ```JavaScript
 //API FIXER key
@@ -56,13 +58,14 @@ export const firebaseConfig = {
 };
 ```
 
-2. Create accounts for FIXER API and XTB API.
+
 
 
 ## Webpack stuff
 
 How to run app?
-in `package.json` there is key `scripts` which give information what needs to be run when app is starting.
+
+In `package.json` there is key called `scripts` which give information what needs to be run when app is starting.
 ```JavaScript
 {
 "start": "webpack-dev-server --hot -d",
@@ -105,9 +108,7 @@ fetch(`${API}/db`)
 Installation of `React Router` from npm - put below command in the folder where you have `package.json` file:
 `npm i react-router-dom --save`
 
-The next step is configuration of `webpack-dev-server`.
-
-`?????`
+The next step is configuration of `webpack-dev-server`. This project provides webpack file configured for its purposes.
 
 You can start your app using `npm start` command and check for the result on: `http://localhost:3001`.
 
@@ -183,7 +184,7 @@ class Contact extends Component {
 ```
 
 #### -
-`Navigation` component example (?????????????????):
+`Navigation` component example:
 ```JavaScript
 class Navigation extends Component {
   render() {

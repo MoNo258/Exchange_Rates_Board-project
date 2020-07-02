@@ -16,9 +16,9 @@ const App = () => {
         <>
             <Router history={hist}>
                 <Switch>
+                    <Route path="/main/login" render={ (props) => (firebase.auth().currentUser ? (<Redirect to="/main/dashboard" />) : (<Layout {...props} />) )} />
+                    <Route path="/main/sign-in" render={ (props) => (firebase.auth().currentUser ? (<Redirect to="/main/dashboard" />) : (<Layout {...props} />) )} />
                     <Route path="/main" render={props => <Layout {...props} />}/>
-                    <Route path="/main/sign-in" render={ () => (firebase.auth().currentUser ? (<Redirect to="/" />) : (<Redirect to="/main/sign-in" />) )} />
-                    <Route path="/main/login" render={ () => (firebase.auth().currentUser ? (<Redirect to="/" />) : (<Redirect to="/main/login" />) )} />
                     <Redirect from="/" to="/main/dashboard"/>
                 </Switch>
             </Router>
