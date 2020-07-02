@@ -1,7 +1,5 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
-import {Register} from "./components/Register";
-// import { variableName } from '../assets/black-dashboard-react/variables/charts';
 import {createBrowserHistory} from "history";
 import {Router, Route, Switch, Redirect} from "react-router-dom";
 import Layout from "./layouts/Layout";
@@ -14,7 +12,6 @@ const hist = createBrowserHistory();
 const App = () => {
     return (
         <>
-            {/*<Register/>*/}
             <Router history={hist}>
                 <Switch>
                     <Route path="/main" render={props => <Layout {...props} />}/>

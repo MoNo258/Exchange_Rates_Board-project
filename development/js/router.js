@@ -16,12 +16,8 @@
 
 */
 import Dashboard from "./views/Dashboard.js";
-// import Icons from "./views/Icons.js";
-// import Map from "./views/Map.js";
 import Charts from "./views/Charts.js";
-// import Rtl from "./views/Rtl.js";
-import TableList from "./views/TableList.js";
-import Typography from "./views/Typography.js";
+import Settings from "./views/Settings.js";
 import UserProfile from "./views/UserProfile.js";
 import News from "./views/News";
 import SignIn from "./views/SignIn";
@@ -35,66 +31,11 @@ var routes = [
         component: Dashboard,
         layout: "/main"
     },
-    // {
-    //     path: "/icons",
-    //     name: "Icons",
-    //     rtlName: "rtlName,
-    //     icon: "tim-icons icon-atom",
-    //     component: Icons,
-    //     layout: "/main"
-    // },
-    // {
-    //     path: "/map",
-    //     name: "Map",
-    //     rtlName: "rtlName",
-    //     icon: "tim-icons icon-pin",
-    //     component: Map,
-    //     layout: "/main"
-    // },
     {
         path: "/charts",
         name: "Charts",
         icon: "tim-icons icon-chart-bar-32",
         component: Charts,
-        layout: "/main"
-    },
-
-
-    {
-        path: "/sign-in",
-        name: "Sign In",
-        icon: "tim-icons icon-single-02",
-        component: SignIn,
-        layout: "/main"
-    },
-
-    {
-        path: "/login",
-        name: "Login",
-        icon: "tim-icons icon-single-02",
-        component: Login,
-        layout: "/main"
-    },
-
-    {
-        path: "/user-profile",
-        name: "User Profile",
-        icon: "tim-icons icon-single-02",
-        component: UserProfile,
-        layout: "/main"
-    },
-    {
-        path: "/tables",
-        name: "Table List",
-        icon: "tim-icons icon-puzzle-10",
-        component: TableList,
-        layout: "/main"
-    },
-    {
-        path: "/typography",
-        name: "Typography",
-        icon: "tim-icons icon-align-center",
-        component: Typography,
         layout: "/main"
     },
     {
@@ -104,13 +45,35 @@ var routes = [
         component: News,
         layout: "/main"
     },
-    // {
-    //     path: "/rtl-support",
-    //     name: "RTL Support",
-    //     rtlName: "rtlName",
-    //     icon: "tim-icons icon-world",
-    //     component: Rtl,
-    //     layout: "/main"
-    // }
+    {
+        path: "/settings",
+        name: "Settings",
+        icon: "tim-icons icon-puzzle-10",
+        component: Settings,
+        layout: "/main"
+    },
+    {
+        path: "/sign-in",
+        name: "Sign In",
+        icon: "tim-icons icon-single-02",
+        component: SignIn,
+        layout: "/main"
+    },
+    {
+        path: "/login",
+        name: "Login",
+        icon: "tim-icons icon-single-02",
+        component: Login,
+        layout: "/main"
+    },
+    {
+        path: "/user-profile",
+        name: "User Profile",
+        icon: "tim-icons icon-single-02",
+        component: UserProfile,
+        layout: "/main"
+    },
+
+
 ];
 export default routes;

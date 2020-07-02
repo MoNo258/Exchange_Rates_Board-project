@@ -25,10 +25,7 @@ import MainNavbar from "../components/MainNavbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 
-// import FixedPlugin from "../../components/FixedPlugin/FixedPlugin.js";
-
 import routes from "../router";
-
 import logo from "../../public/logo.png";
 
 var ps;
@@ -144,10 +141,6 @@ class Layout extends React.Component {
                             )}
                     </div>
                 </div>
-                {/*<FixedPlugin*/}
-                {/*    bgColor={this.state.backgroundColor}*/}
-                {/*    handleBgClick={this.handleBgClick}*/}
-                {/*/>*/}
             </>
         );
     }
