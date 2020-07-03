@@ -49,7 +49,9 @@ import {
 import {
     chartExample1
 } from "../variables/charts";
-import historicalRates from "../services/historicalRates";
+
+import {HistoricalRates} from "../services/HistoricalRates";
+const historicalRates = new HistoricalRates();
 
 
 class Charts extends React.Component {
@@ -61,17 +63,25 @@ class Charts extends React.Component {
                 USD: "data2",
                 GBP: "data3"
             },
-            dataForChart: false
+            dataForChart: false,
+            histRatesArray: [],
+            histDatesArray: []
         };
     }
 
-    // //for new approach
-    // componentDidMount() {
-    //     historicalRates.getRates("EUR", (data) => {
-    //         // update dataForChart
-    //
-    //     })
-    // }
+
+    //for new approach
+    componentDidMount() {
+        historicalRates.getHistRatesForCurrency("EUR", (data) => {
+            // update data ForChart
+            this.setState( data.forEach( element => this.state.histRatesArray.push(element.mid)));
+            this.setState( data.forEach( element => this.state.histDatesArray.push(element.effectiveDate)));
+        })
+        console.log(this.state.histRatesArray)
+    }
+
+
+
 
     htmlChart = (currency) => {
         return(
@@ -89,9 +99,12 @@ class Charts extends React.Component {
                         <CardBody>
                             <div className="chart-area">
 
+                                {/*how to include states for this.state.histRatesArray & this.state.histDatesArray in chartExample1*/}
+                                {/*???????????????????????????????????????????????????????????????????????????????????????????*/}
                                 <Line
-                                    data={chartExample1[this.state.bigChartDataArray[currency]]}
+                                    data={() => chartExample1[this.state.bigChartDataArray[currency]]}
                                     options={chartExample1.options}
+
                                 />
 
                             </div>

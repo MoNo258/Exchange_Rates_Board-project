@@ -19,20 +19,9 @@
 // // // Chart variables
 // #############################
 
-// chartExample1 and chartExample2 options
-
-
-import historicalRates from "../services/historicalRates";
-
-// let chartExample1 = {};
-
-//beginning of historical promise
-// historicalRates().then( result => {
-// historicalRates().then( result => {
-
-// console.log(result);
-// console.log(result.histRatesArray);
-// console.log(result.effDateArray);
+//import Charts from "../views/Charts";
+import {HistoricalRates} from "../services/HistoricalRates";
+const historicalRates = new HistoricalRates();
 
 let chart1_2_options = {
     maintainAspectRatio: false,
@@ -90,7 +79,7 @@ let chart1_2_options = {
 // #########################################
 
 let chartExample1 = {
-    data1: canvas => {
+    data1: (rates, dates,  canvas) => {
         let ctx = canvas.getContext("2d");
         let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
 
@@ -101,11 +90,12 @@ let chartExample1 = {
         // console.log(historicalRates().EUR.effDateArray.slice(0));
         // console.log(Array.from(historicalRates().EUR.effDateArray).join());
         // console.log(historicalRates().EUR);
-        let result = historicalRates().EUR;
-        let labelsX = result.effDateArray;
-        console.log(labelsX);
-        let labelsY = result.histRatesArray;
-        console.log(labelsY);
+
+        //let result = HistoricalRates.EUR;
+        //????????????????????????????????????????????????????????????????????????????????????????????
+        // something like: this.props.histRatesArray & this.props.histDatesArray if this was a Component...
+        let labelsX = dates;
+        let labelsY = rates;
 
         gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
         gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
@@ -141,9 +131,8 @@ let chartExample1 = {
         let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
         let result = historicalRates().USD;
         let labelsX = result.effDateArray;
-        // console.log(labelsX);
         let labelsY = result.histRatesArray;
-        // console.log(labelsY);
+
 
         gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
         gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
@@ -178,9 +167,7 @@ let chartExample1 = {
         let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
         let result = historicalRates().GBP;
         let labelsX = result.effDateArray;
-        // console.log(labelsX);
         let labelsY = result.histRatesArray;
-        // console.log(labelsY);
 
         gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
         gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
@@ -212,12 +199,6 @@ let chartExample1 = {
     options: chart1_2_options
 };
 
-
-//end of historical promise
-// return chartExample1
-// })
-//     .catch(err => console.log(err));
-//end of historical promise
 
 export {chartExample1}
 
