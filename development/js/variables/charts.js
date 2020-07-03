@@ -78,6 +78,8 @@ let chart1_2_options = {
 // // // used inside src/views/Charts.js
 // #########################################
 
+// let chartExample1 = (type, dates, rates) =>  {
+//     if {}
 let chartExample1 = {
     data1: (rates, dates,  canvas) => {
         let ctx = canvas.getContext("2d");

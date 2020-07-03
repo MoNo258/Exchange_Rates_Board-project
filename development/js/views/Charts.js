@@ -74,9 +74,13 @@ class Charts extends React.Component {
     componentDidMount() {
         historicalRates.getHistRatesForCurrency("EUR", (data) => {
             // update data ForChart
-            this.setState( data.forEach( element => this.state.histRatesArray.push(element.mid)));
-            this.setState( data.forEach( element => this.state.histDatesArray.push(element.effectiveDate)));
-        })
+            const newRates = data.map( element => element.mid);
+            const newDates = data.map( element => element.effectiveDate);
+            this.setState({
+                histRatesArray: newRates,
+                histDatesArray: newDates
+            }, () => console.log(this.state.histDatesArray));
+        });
         console.log(this.state.histRatesArray)
     }
 
@@ -103,6 +107,7 @@ class Charts extends React.Component {
                                 {/*???????????????????????????????????????????????????????????????????????????????????????????*/}
                                 <Line
                                     data={() => chartExample1[this.state.bigChartDataArray[currency]]}
+                                    // data={() => chartExample1.createConfig(this.state.bigChartDataArray[currency], this.state.histDatesArray, this.state.histRatesArray) }
                                     options={chartExample1.options}
 
                                 />
