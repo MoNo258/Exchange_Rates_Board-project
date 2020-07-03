@@ -106,8 +106,8 @@ class Charts extends React.Component {
                                 {/*how to include states for this.state.histRatesArray & this.state.histDatesArray in chartExample1*/}
                                 {/*???????????????????????????????????????????????????????????????????????????????????????????*/}
                                 <Line
-                                    data={() => chartExample1[this.state.bigChartDataArray[currency]]}
-                                    // data={() => chartExample1.createConfig(this.state.bigChartDataArray[currency], this.state.histDatesArray, this.state.histRatesArray) }
+                                    // data={() => chartExample1[this.state.bigChartDataArray[currency]]}
+                                    data={() => chartExample1.createConfig(this.state.bigChartDataArray[currency], this.state.histDatesArray, this.state.histRatesArray) }
                                     options={chartExample1.options}
 
                                 />
