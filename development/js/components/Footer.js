@@ -22,19 +22,21 @@ import PropTypes from "prop-types";
 
 // reactstrap components
 import { Container, Row, Nav, NavItem, NavLink } from "reactstrap";
+import {Router, Route, Switch, Link, Redirect} from "react-router-dom";
 
 class Footer extends React.Component {
+
     render() {
         return (
             <footer className="footer">
                 <Container fluid>
                     <Nav>
                         <NavItem>
-                            <NavLink href="/dashboard">Ex Rates Board</NavLink>
+                            <Link to="/main/dashboard" className="nav-link">Ex Rates Board</Link>
                         </NavItem>
                     </Nav>
                     <div className="copyright">
-                        <NavLink id='to-lower-case-id' href="/main/news">Checkout financial news - be always up-to-date</NavLink>
+                        <Link to="/main/news" className="nav-link" id="to-lower-case-id" >Checkout financial news - be always up-to-date</Link>
                     </div>
                 </Container>
             </footer>

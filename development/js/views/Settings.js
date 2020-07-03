@@ -59,7 +59,7 @@ export const Settings = () => {
                                                 {/*USD,GBP,CHF,AUD,CAD,JPY,SEK,DKK,NOK,SEK,PLN,RON,BGN,HUF,CZK,INR,AED,ZAR,MAD,MXN*/}
                                                 <FormGroup check inline>
                                                     <Label check>
-                                                        <CustomInput type="checkbox" id="curr-1" checked={checked} onChange={e => setChecked(e.target.value)} /> USD
+                                                        <CustomInput type="checkbox" id="curr-1" checked={checked} onChange={e => setChecked(e.currentTarget.checked)} /> USD
                                                     </Label>
                                                 </FormGroup>
                                                 <FormGroup check inline>

@@ -56,9 +56,9 @@ export const UserProfile = () => {
     const handleSubmit = e => {
         e.preventDefault();
         const newErrors = [];
-        if (user.username.length < 2) {
-            newErrors.push("Username is too short")
-        }
+        // if (user.username.length < 2) {
+        //     newErrors.push("Username is too short")
+        // }
         if (user.email.length < 3 && !user.email.includes("@")) {
             newErrors.push("Wrong email address")
         }
@@ -67,10 +67,9 @@ export const UserProfile = () => {
         }
         if (user.password !== passwordRepeat) {
             newErrors.push("Passwords not match")
-        }
-        // if(user.postalcode.length < 5 || user.postCode.length > 6 || !user.postCode.match("^[0-9]{2}-[0-9]{3}$")){ newErrors.push("Wrong post code")}
-        if (user.address.length < 2) {
-            newErrors.push("City is too short")
+        // }
+        // if (user.address.length < 2) {
+        //     newErrors.push("City is too short")
         }
 
         setErrors(newErrors);
@@ -194,6 +193,6 @@ export const UserProfile = () => {
         </>
     );
 
-}
+};
 
 export default UserProfile;

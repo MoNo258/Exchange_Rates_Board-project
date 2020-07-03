@@ -16,8 +16,10 @@
 
 */
 import React from "react";
+import {Router, Route, Switch, Link, Redirect} from "react-router-dom";
 // nodejs library that concatenates classes
 import classNames from "classnames";
+import firebase from '../firebase/firebase.config'
 
 // reactstrap components
 import {
@@ -79,6 +81,13 @@ class MainNavbar extends React.Component {
         });
     };
 
+    handleLogOut = () => {
+      firebase.auth().signOut()
+          .catch( err => {
+              console.log('Error while signing out: ', err)
+          });
+        console.log('Sign out user')
+    };
 
     render() {
         return (
@@ -88,6 +97,7 @@ class MainNavbar extends React.Component {
                     expand="lg"
                 >
                     <Container fluid>
+                        {/* this part i related to left-hand-side burger button + X: */}
                         <div className="navbar-wrapper">
                             <div
                                 className={classNames("navbar-toggle d-inline", {
@@ -104,10 +114,11 @@ class MainNavbar extends React.Component {
                                     <span className="navbar-toggler-bar bar3" />
                                 </button>
                             </div>
-                            <NavbarBrand href="#pablo" onClick={e => e.preventDefault()}>
+                            <NavbarBrand href="#" onClick={e => e.preventDefault()}>
                                 {this.props.brandText}
                             </NavbarBrand>
                         </div>
+                        {/* this part is related to right-hand-side burger(kebab) button: */}
                         <button
                             aria-expanded={false}
                             aria-label="Toggle navigation"
@@ -132,23 +143,39 @@ class MainNavbar extends React.Component {
                                         nav
                                         onClick={e => e.preventDefault()}
                                     >
-                                        <div className="photo">
+                                        <div className="d-lg">
                                             <i className="fa fa-user-circle" aria-hidden="true"></i>
                                         </div>
                                         <b className="caret d-none d-lg-block d-xl-block" />
                                         <p className="d-lg-none">Log out</p>
                                     </DropdownToggle>
                                     <DropdownMenu className="dropdown-navbar" right tag="ul">
-                                        <NavLink tag="li">
-                                            <DropdownItem className="nav-item">Profile</DropdownItem>
-                                        </NavLink>
-                                        <NavLink tag="li">
+                                        {(!firebase.auth().currentUser) ?
+                                            <>
+                                            <Link to='/main/sign-in' tag="li">
+                                                <DropdownItem className="nav-item">Sign in</DropdownItem>
+                                            </Link>
+                                            <Link to='/main/login' tag="li">
+                                            <DropdownItem className="nav-item">Login</DropdownItem>
+                                            </Link>
+                                            </>
+                                        :
+                                            <>
+                                            <Link to='/main/user-profile' tag="li">
+                                                <DropdownItem className="nav-item">Profile</DropdownItem>
+                                            </Link>
+                                            <Link to='/main/settings' tag="li">
                                             <DropdownItem className="nav-item">Settings</DropdownItem>
-                                        </NavLink>
-                                        <DropdownItem divider tag="li" />
-                                        <NavLink tag="li">
-                                            <DropdownItem className="nav-item">Log out</DropdownItem>
-                                        </NavLink>
+                                            </Link>
+                                            <DropdownItem divider tag="li" />
+                                            <Link to='main/dashboard' tag="li">
+                                            <DropdownItem className="nav-item" onClick={this.handleLogOut}>Log out</DropdownItem>
+                                            </Link>
+                                            </>
+                                        }
+
+
+
                                     </DropdownMenu>
                                 </UncontrolledDropdown>
                                 <li className="separator d-lg-none" />

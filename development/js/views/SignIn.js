@@ -37,6 +37,11 @@ import {
     Modal
 } from "reactstrap";
 
+import firebase from "../firebase/firebase.config";
+import {Redirect, Route, Router, Switch} from "react-router-dom";
+import Layout from "../layouts/Layout";
+import {createBrowserHistory} from "history";
+
 export const SignIn = () => {
     // const [modalUser, setModalUser] = useState(true);
     const [user, setUser] = useState({
@@ -50,6 +55,7 @@ export const SignIn = () => {
     });
     const [passwordRepeat, setPasswordRepeat] = useState("");
     const [errors, setErrors] = useState([]);
+    const [info, setInfo] = useState([]);
 
     const handleChangeUserData = e => {
         const {name, value} = e.target;
@@ -63,9 +69,10 @@ export const SignIn = () => {
     const handleSubmit = e => {
         e.preventDefault();
         const newErrors = [];
-        if (user.username.length < 2) {
-            newErrors.push("Username is too short")
-        }
+        const newInfo = [];
+        // if (user.username.length < 2) {
+        //     newErrors.push("Username is too short")
+        // }
         if (user.email.length < 3 && !user.email.includes("@")) {
             newErrors.push("Wrong email address")
         }
@@ -75,14 +82,28 @@ export const SignIn = () => {
         if (user.password !== passwordRepeat) {
             newErrors.push("Passwords not match")
         }
-        // if(user.postalcode.length < 5 || user.postCode.length > 6 || !user.postCode.match("^[0-9]{2}-[0-9]{3}$")){ newErrors.push("Wrong post code")}
-        if (user.address.length < 2) {
-            newErrors.push("City is too short")
-        }
+        // if (user.address.length < 2) {
+        //     newErrors.push("City is too short")
+        // }
 
         setErrors(newErrors);
         if (newErrors.length > 0) return false;
-        // sendForm();
+
+        // send form
+        //register new user
+        firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
+            .catch( err => {
+                console.log('Error while signing in with email and pssword: ', err)
+            });
+        const currentUser = firebase.auth().currentUser;
+        if (firebase.auth().currentUser) {
+            console.log('Registered as ');
+            console.log('State: ', user.email);
+            console.log('Firebase: ', currentUser);
+            newInfo.push(`You are registered as ${user.email}`);
+            setInfo(newInfo);
+            if (newInfo.length > 0) return false;
+        }
     };
 
 
@@ -125,8 +146,7 @@ export const SignIn = () => {
                                 <Form onSubmit={handleSubmit}>
                                     <Row>
                                         <Col md="12">
-                                            {/*{errors.length > 0 && <ul> {errors.map( (err, index) => <li key={index}>{err}</li>)} </ul>}*/}
-                                            {/*{ errors.length > 0 && <ListGroup> { errors.map( (error, id) => <ListGroupItem key={id}>{error}</ListGroupItem>) } </ListGroup> }*/}
+                                            { info.length > 0 &&  <div > { info.map( (inf, id) => <Alert color="info" key={id}>{inf}</Alert>) } </div> }
                                             { errors.length > 0 &&  <div > { errors.map( (error, id) => <Alert className="warning-new" color="warning" key={id}>{error}</Alert>) } </div> }
                                         </Col>
                                     </Row>

@@ -34,16 +34,22 @@ import {
     ListGroupItem,
     Row,
     Col,
-    Modal
+    Modal, DropdownItem
 } from "reactstrap";
+
+import firebase from '../firebase/firebase.config'
+import {Link, Redirect, Route, Router, Switch} from "react-router-dom";
+import Layout from "../layouts/Layout";
+import {createBrowserHistory} from "history";
 
 export const Login = () => {
     // const [modalUser, setModalUser] = useState(true);
     const [user, setUser] = useState({
-        username: '',
+        email: '',
         password: ''
     });
     const [errors, setErrors] = useState([]);
+    const [info, setInfo] = useState([]);
 
     const handleInputUserData = e => {
         const {name, value} = e.target;
@@ -57,19 +63,35 @@ export const Login = () => {
     const handleSubmit = e => {
         e.preventDefault();
         const newErrors = [];
-        if (user.username.length < 2) {
-            newErrors.push("Username is too short")
+        const newInfo =[];
+        if (user.email.length < 3 && !user.email.includes("@")) {
+            newErrors.push("Wrong email address")
         }
         if (user.password.length < 4) {
             newErrors.push("Password is too short")
         }
         setErrors(newErrors);
         if (newErrors.length > 0) return false;
-        // sendForm();
+        // send form
+        //login existing user
+        firebase.auth().signInWithEmailAndPassword(user.email, user.password)
+            .catch( err => {
+                newErrors.push('Error while login in existing user: ', err);
+                console.log('Error while login in existing user: ', err);
+            });
+        const currentUser = firebase.auth().currentUser;
+        if (firebase.auth().currentUser) {
+            console.log('Logged in as ');
+            console.log('State: ', user.email);
+            console.log('Firebase: ', currentUser);
+            newInfo.push(`You logged in as ${user.email}`);
+            setInfo(newInfo);
+            if (newInfo.length > 0) return false;
+        }
     };
 
 
-    // // this function is to open the Search modal
+    // // this function is to open the modal
     // const toggleModalUser = () => {
     //     setModalUser({
     //         modalUser: !modalUser
@@ -108,16 +130,25 @@ export const Login = () => {
                                 <Form onSubmit={handleSubmit}>
                                     <Row>
                                         <Col md="12">
-                                            {/*{errors.length > 0 && <ul> {errors.map( (err, index) => <li key={index}>{err}</li>)} </ul>}*/}
-                                            {/*{ errors.length > 0 && <ListGroup> { errors.map( (error, id) => <ListGroupItem key={id}>{error}</ListGroupItem>) } </ListGroup> }*/}
+                                            { info.length > 0 &&  <div > { info.map( (inf, id) => <Alert color="info" key={id}>{inf}</Alert>) } </div> }
                                             { errors.length > 0 &&  <div > { errors.map( (error, id) => <Alert className="warning-new" color="warning" key={id}>{error}</Alert>) } </div> }
                                         </Col>
                                     </Row>
                                     <Row>
-                                        <Col className="px-md-1" md="6">
+                                        {/*<Col className="px-md-1" md="6">*/}
+                                        {/*    <FormGroup>*/}
+                                        {/*        <label>Username</label>*/}
+                                        {/*        <Input placeholder="Username" type="text" name={"username"} value={user.username}*/}
+                                        {/*               onChange={handleInputUserData}*/}
+                                        {/*        />*/}
+                                        {/*    </FormGroup>*/}
+                                        {/*</Col>*/}
+                                        <Col className="pl-md-1" md="6">
                                             <FormGroup>
-                                                <label>Username</label>
-                                                <Input placeholder="Username" type="text" name={"username"} value={user.username}
+                                                <label htmlFor="exampleInputEmail1">
+                                                    Email address
+                                                </label>
+                                                <Input placeholder="mail@mail.com" type="email" name={"email"} value={user.email}
                                                        onChange={handleInputUserData}
                                                 />
                                             </FormGroup>
