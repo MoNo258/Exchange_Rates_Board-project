@@ -96,7 +96,6 @@ class Charts extends React.Component {
                         EUR: newDates
                     },
                 },
-                // () => console.log('DatesEUR: ', this.state.histDatesArray.EUR, 'RatesEUR: ', this.state.histRatesArray.EUR)
             );
         });
         historicalRates.getHistRatesForCurrency(this.state.chartCurrency.curr2, (data) => {
@@ -111,7 +110,6 @@ class Charts extends React.Component {
                         USD: newDates
                     },
                 },
-                // () => console.log('DatesEUR: ', this.state.histDatesArray.EUR, 'RatesEUR: ', this.state.histRatesArray.EUR)
             );
         });
         historicalRates.getHistRatesForCurrency(this.state.chartCurrency.curr3, (data) => {
@@ -126,7 +124,7 @@ class Charts extends React.Component {
                         GBP: newDates
                     },
                 },
-                // () => console.log('DatesEUR: ', this.state.histDatesArray['EUR'], 'RatesEUR: ', this.state.histRatesArray.EUR, 'DatesUSD: ', this.state.histDatesArray.USD, 'RatesUSD: ', this.state.histRatesArray.USD, 'DatesGBP: ', this.state.histDatesArray.GBP, 'RatesGBP: ', this.state.histRatesArray.GBP)
+                () => console.log('DatesEUR: ', this.state.histDatesArray1['EUR'], 'RatesEUR: ', this.state.histRatesArray1.EUR, 'DatesUSD: ', this.state.histDatesArray2.USD, 'RatesUSD: ', this.state.histRatesArray2.USD, 'DatesGBP: ', this.state.histDatesArray3.GBP, 'RatesGBP: ', this.state.histRatesArray3.GBP)
             );
         });
     }
@@ -168,15 +166,15 @@ class Charts extends React.Component {
                                             let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
                                             let labelsX;
                                             let labelsY;
-                                            if (currency = 'EUR') {
+                                            if (currency === 'EUR') {
                                                 labelsX = this.state.histDatesArray1[currency];
                                                 labelsY = this.state.histRatesArray1[currency];
                                             }
-                                            if (currency = 'USD') {
+                                            if (currency === 'USD') {
                                                 labelsX = this.state.histDatesArray2[currency];
                                                 labelsY = this.state.histRatesArray2[currency];
                                             }
-                                            if (currency = 'GBP') {
+                                            if (currency === 'GBP') {
                                                 labelsX = this.state.histDatesArray3[currency];
                                                 labelsY = this.state.histRatesArray3[currency];
                                             }
