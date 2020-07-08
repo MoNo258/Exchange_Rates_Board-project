@@ -26,7 +26,7 @@ export class HistoricalRates {
             })
             .then((data) => {
                 successCallback(data.rates);
-                console.log('this is it:');
+                // console.log('this is it:');
             })
             .catch(error => console.log(error));
     }

@@ -21,7 +21,7 @@ import classNames from "classnames";
 // react plugin for creating notifications over the dashboard
 import NotificationAlert from "react-notification-alert";
 
-import { Line, Bar } from "react-chartjs-2";
+import {Line, Bar} from "react-chartjs-2";
 // reactstrap components
 import {
     Alert,
@@ -45,50 +45,95 @@ import {
     UncontrolledTooltip
 } from "reactstrap";
 
-
-import {
-    chartExample1
-} from "../variables/charts";
+import {chart1_2_options} from "../variables/charts";
+import {chartExample1} from "../variables/charts";
 
 import {HistoricalRates} from "../services/HistoricalRates";
 const historicalRates = new HistoricalRates();
-
 
 class Charts extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            bigChartDataArray: {
-                EUR: "data1",
-                USD: "data2",
-                GBP: "data3"
+            chartCurrency: {
+                curr1: "EUR",
+                curr2: "USD",
+                curr3: "GBP"
             },
-            dataForChart: false,
-            histRatesArray: [],
-            histDatesArray: []
+            histRatesArray1: {
+                EUR: []
+            },
+            histDatesArray1: {
+                EUR: []
+            },
+            histRatesArray2: {
+                USD: []
+            },
+            histDatesArray2: {
+                USD: []
+            },
+            histRatesArray3: {
+                GBP: []
+            },
+            histDatesArray3: {
+                GBP: []
+            },
         };
     }
 
 
     //for new approach
     componentDidMount() {
-        historicalRates.getHistRatesForCurrency("EUR", (data) => {
+        historicalRates.getHistRatesForCurrency(this.state.chartCurrency.curr1, (data) => {
             // update data ForChart
-            const newRates = data.map( element => element.mid);
-            const newDates = data.map( element => element.effectiveDate);
+            const newRates = data.map(element => element.mid);
+            const newDates = data.map(element => element.effectiveDate);
             this.setState({
-                histRatesArray: newRates,
-                histDatesArray: newDates
-            }, () => console.log(this.state.histDatesArray));
+                    histRatesArray1: {
+                        EUR: newRates
+                    },
+                    histDatesArray1: {
+                        EUR: newDates
+                    },
+                },
+                // () => console.log('DatesEUR: ', this.state.histDatesArray.EUR, 'RatesEUR: ', this.state.histRatesArray.EUR)
+            );
         });
-        console.log(this.state.histRatesArray)
+        historicalRates.getHistRatesForCurrency(this.state.chartCurrency.curr2, (data) => {
+            // update data ForChart
+            const newRates = data.map(element => element.mid);
+            const newDates = data.map(element => element.effectiveDate);
+            this.setState({
+                    histRatesArray2: {
+                        USD: newRates
+                    },
+                    histDatesArray2: {
+                        USD: newDates
+                    },
+                },
+                // () => console.log('DatesEUR: ', this.state.histDatesArray.EUR, 'RatesEUR: ', this.state.histRatesArray.EUR)
+            );
+        });
+        historicalRates.getHistRatesForCurrency(this.state.chartCurrency.curr3, (data) => {
+            // update data ForChart
+            const newRates = data.map(element => element.mid);
+            const newDates = data.map(element => element.effectiveDate);
+            this.setState({
+                    histRatesArray3: {
+                        GBP: newRates
+                    },
+                    histDatesArray3: {
+                        GBP: newDates
+                    },
+                },
+                // () => console.log('DatesEUR: ', this.state.histDatesArray['EUR'], 'RatesEUR: ', this.state.histRatesArray.EUR, 'DatesUSD: ', this.state.histDatesArray.USD, 'RatesUSD: ', this.state.histRatesArray.USD, 'DatesGBP: ', this.state.histDatesArray.GBP, 'RatesGBP: ', this.state.histRatesArray.GBP)
+            );
+        });
     }
 
 
-
-
     htmlChart = (currency) => {
-        return(
+        return (
             <Row>
                 <Col xs="12">
                     <Card className="card-chart">
@@ -105,10 +150,69 @@ class Charts extends React.Component {
 
                                 {/*how to include states for this.state.histRatesArray & this.state.histDatesArray in chartExample1*/}
                                 {/*???????????????????????????????????????????????????????????????????????????????????????????*/}
+                                {/*<Line*/}
+
+                                {/*    // data={() => chartExample1[this.state.bigChartDataArray[currency]]}*/}
+                                {/*    data={() => chartExample1(this.state.bigChartDataArray[currency], this.state.histDatesArray, this.state.histRatesArray) }*/}
+                                {/*    options={chartExample1.options}*/}
+
+                                {/*/>*/}
+
+
                                 <Line
-                                    // data={() => chartExample1[this.state.bigChartDataArray[currency]]}
-                                    data={() => chartExample1.createConfig(this.state.bigChartDataArray[currency], this.state.histDatesArray, this.state.histRatesArray) }
-                                    options={chartExample1.options}
+
+
+                                    data={
+                                        canvas => {
+                                            let ctx = canvas.getContext("2d");
+                                            let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+                                            let labelsX;
+                                            let labelsY;
+                                            if (currency = 'EUR') {
+                                                labelsX = this.state.histDatesArray1[currency];
+                                                labelsY = this.state.histRatesArray1[currency];
+                                            }
+                                            if (currency = 'USD') {
+                                                labelsX = this.state.histDatesArray2[currency];
+                                                labelsY = this.state.histRatesArray2[currency];
+                                            }
+                                            if (currency = 'GBP') {
+                                                labelsX = this.state.histDatesArray3[currency];
+                                                labelsY = this.state.histRatesArray3[currency];
+                                            }
+
+
+                                            gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
+                                            gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
+                                            gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
+
+                                            return {
+                                                // data: {
+                                                labels: labelsX,
+                                                datasets: [
+                                                    {
+                                                        label: "Historical rate",
+                                                        fill: true,
+                                                        backgroundColor: gradientStroke,
+                                                        borderColor: "#1f8ef1",
+                                                        borderWidth: 2,
+                                                        borderDash: [],
+                                                        borderDashOffset: 0.0,
+                                                        pointBackgroundColor: "#1f8ef1",
+                                                        pointBorderColor: "rgba(255,255,255,0)",
+                                                        pointHoverBackgroundColor: "#1f8ef1",
+                                                        pointBorderWidth: 20,
+                                                        pointHoverRadius: 4,
+                                                        pointHoverBorderWidth: 15,
+                                                        pointRadius: 2.5,
+                                                        data: labelsY
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+
+                                    options={chart1_2_options}
 
                                 />
 
