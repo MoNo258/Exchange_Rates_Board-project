@@ -8,7 +8,7 @@ node_modules/
 .sass-cache/
 
 distribution/
-build/
+#build/
 
 ### OSX ###
 .DS_Store

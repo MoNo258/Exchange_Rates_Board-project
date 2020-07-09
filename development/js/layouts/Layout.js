@@ -26,7 +26,7 @@ import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 
 import routes from "../router";
-import logo from "../../public/logo.png";
+// import logo from "../../public/logo.png";
 
 var ps;
 
