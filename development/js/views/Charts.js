@@ -18,9 +18,6 @@
 import React from "react";
 import classNames from "classnames";
 
-// react plugin for creating notifications over the dashboard
-import NotificationAlert from "react-notification-alert";
-
 import {Line, Bar} from "react-chartjs-2";
 // reactstrap components
 import {
@@ -49,6 +46,7 @@ import {chart1_2_options} from "../variables/charts";
 import {chartExample1} from "../variables/charts";
 
 import {HistoricalRates} from "../services/HistoricalRates";
+
 const historicalRates = new HistoricalRates();
 
 class Charts extends React.Component {
@@ -82,10 +80,8 @@ class Charts extends React.Component {
     }
 
 
-    //for new approach
     componentDidMount() {
         historicalRates.getHistRatesForCurrency(this.state.chartCurrency.curr1, (data) => {
-            // update data ForChart
             const newRates = data.map(element => element.mid);
             const newDates = data.map(element => element.effectiveDate);
             this.setState({
@@ -99,7 +95,6 @@ class Charts extends React.Component {
             );
         });
         historicalRates.getHistRatesForCurrency(this.state.chartCurrency.curr2, (data) => {
-            // update data ForChart
             const newRates = data.map(element => element.mid);
             const newDates = data.map(element => element.effectiveDate);
             this.setState({
@@ -113,7 +108,6 @@ class Charts extends React.Component {
             );
         });
         historicalRates.getHistRatesForCurrency(this.state.chartCurrency.curr3, (data) => {
-            // update data ForChart
             const newRates = data.map(element => element.mid);
             const newDates = data.map(element => element.effectiveDate);
             this.setState({
@@ -124,7 +118,7 @@ class Charts extends React.Component {
                         GBP: newDates
                     },
                 },
-                () => console.log('DatesEUR: ', this.state.histDatesArray1['EUR'], 'RatesEUR: ', this.state.histRatesArray1.EUR, 'DatesUSD: ', this.state.histDatesArray2.USD, 'RatesUSD: ', this.state.histRatesArray2.USD, 'DatesGBP: ', this.state.histDatesArray3.GBP, 'RatesGBP: ', this.state.histRatesArray3.GBP)
+                // () => console.log('DatesEUR: ', this.state.histDatesArray1['EUR'], 'RatesEUR: ', this.state.histRatesArray1.EUR, 'DatesUSD: ', this.state.histDatesArray2.USD, 'RatesUSD: ', this.state.histRatesArray2.USD, 'DatesGBP: ', this.state.histDatesArray3.GBP, 'RatesGBP: ', this.state.histRatesArray3.GBP)
             );
         });
     }
@@ -146,20 +140,15 @@ class Charts extends React.Component {
                         <CardBody>
                             <div className="chart-area">
 
-                                {/*how to include states for this.state.histRatesArray & this.state.histDatesArray in chartExample1*/}
-                                {/*???????????????????????????????????????????????????????????????????????????????????????????*/}
+                                {/*/!*version for potential taking chart data from variables/charts.js*!/*/}
                                 {/*<Line*/}
-
-                                {/*    // data={() => chartExample1[this.state.bigChartDataArray[currency]]}*/}
-                                {/*    data={() => chartExample1(this.state.bigChartDataArray[currency], this.state.histDatesArray, this.state.histRatesArray) }*/}
-                                {/*    options={chartExample1.options}*/}
-
+                                {/*    // data={() => chartExample1(this.state.histDatesArray1[currency], this.state.histRatesArray1[currency]) }*/}
+                                {/*    // data={chartExample1(this.state.histDatesArray1[currency], this.state.histRatesArray1[currency]) }*/}
+                                {/*    data={ () => chartExample1(this.state.histDatesArray1['EUR'], this.state.histRatesArray1['EUR']) }*/}
+                                {/*    options={ chart1_2_options }*/}
                                 {/*/>*/}
 
-
                                 <Line
-
-
                                     data={
                                         canvas => {
                                             let ctx = canvas.getContext("2d");
@@ -178,8 +167,6 @@ class Charts extends React.Component {
                                                 labelsX = this.state.histDatesArray3[currency];
                                                 labelsY = this.state.histRatesArray3[currency];
                                             }
-
-
                                             gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
                                             gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
                                             gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
@@ -209,9 +196,7 @@ class Charts extends React.Component {
                                             }
                                         }
                                     }
-
                                     options={chart1_2_options}
-
                                 />
 
                             </div>
