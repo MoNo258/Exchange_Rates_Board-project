@@ -76,54 +76,48 @@ export let chart1_2_options = {
 // // // used inside src/views/Charts.js
 // #########################################
 
+// //version for potential sending chart data from variables/charts.js to views/Charts.js
 export let chartExample1 = (dataDates, dataRates) => {
-    return {
+    // return {
 
-        data1: canvas => {
-            let ctx = canvas.getContext("2d");
+    data: {
+    canvas => {
+        let ctx = canvas.getContext("2d");
 
-            let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
-            let labelsX = dataDates;
-            let labelsY = dataRates;
+        let gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+        let labelsX = dataDates;
+        let labelsY = dataRates;
 
-            gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
-            gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
-            gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
-
-
-            return {
-                // data: {
-                labels: labelsX,
-                datasets: [
-                    {
-                        label: "Historical rate",
-                        fill: true,
-                        backgroundColor: gradientStroke,
-                        borderColor: "#1f8ef1",
-                        borderWidth: 2,
-                        borderDash: [],
-                        borderDashOffset: 0.0,
-                        pointBackgroundColor: "#1f8ef1",
-                        pointBorderColor: "rgba(255,255,255,0)",
-                        pointHoverBackgroundColor: "#1f8ef1",
-                        pointBorderWidth: 20,
-                        pointHoverRadius: 4,
-                        pointHoverBorderWidth: 15,
-                        pointRadius: 2.5,
-                        data: labelsY
-                    }
-                ]
-            }
-        },
+        gradientStroke.addColorStop(1, "rgba(29,140,248,0.2)");
+        gradientStroke.addColorStop(0.4, "rgba(29,140,248,0.0)");
+        gradientStroke.addColorStop(0, "rgba(29,140,248,0)"); //blue colors
 
 
-        // options: chart1_2_options
-
+        return {
+            labels: labelsX,
+            datasets: [
+                {
+                    label: "Historical rate",
+                    fill: true,
+                    backgroundColor: gradientStroke,
+                    borderColor: "#1f8ef1",
+                    borderWidth: 2,
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    pointBackgroundColor: "#1f8ef1",
+                    pointBorderColor: "rgba(255,255,255,0)",
+                    pointHoverBackgroundColor: "#1f8ef1",
+                    pointBorderWidth: 20,
+                    pointHoverRadius: 4,
+                    pointHoverBorderWidth: 15,
+                    pointRadius: 2.5,
+                    data: labelsY
+                }
+            ]
+        }
     }
 
+}
+// }
 };
-
-
-// export {chartExample1}
-
 

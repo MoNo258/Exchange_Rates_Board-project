@@ -116,7 +116,8 @@ class Layout extends React.Component {
                         logo={{
                             outterLink: "/",
                             text: "Ex_Rates Board",
-                            imgSrc: logo
+                            // imgSrc: logo
+                            imgSrc: 'https://cdn.pixabay.com/photo/2017/01/25/17/33/diagram-2008478_960_720.png'
                         }}
                         toggleSidebar={this.toggleSidebar}
                     />

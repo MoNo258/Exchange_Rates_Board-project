@@ -35,6 +35,7 @@ development/js/services/secret.js
 
 
 ### Used for tests only ###
+README_additional.md
 development/js/users.json
 development/js/db.json
 historicalRates.json
