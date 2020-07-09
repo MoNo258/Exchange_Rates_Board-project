@@ -44,10 +44,10 @@ Final Project for CodersLab JavaScrip+React course
 3. Create file `secret.js` with details for APIs and Firebase.
     * create file: `development/js/services/secret.js`. Structure should be as follows:
 ```JavaScript
-//API FIXER key
+//API FIXER key (for REST API used in Rates.js - spot rates for EUR)
 export const KEY_FIXER = 'YOUR-KEY';
 
-//API XTB login & password
+//API XTB login & password  (for WebSocket API used in News.js)
 export const USER_ID_XTB = 'YOUR-LOGIN-ID';
 export const USER_PSSWRD_XTB = 'YOUR-PASSWORD';
 
