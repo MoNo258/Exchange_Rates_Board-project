@@ -6,7 +6,7 @@ import Layout from "./layouts/Layout";
 import firebase from "./firebase/firebase.config";
 import "../scss/main.scss";
 
-console.log('check if working...');
+// console.log('check if working...');
 
 
 const hist = createBrowserHistory();
