@@ -41,19 +41,16 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: "babel-loader"
             },
-            // {
-            //     test: /\.js$/,
-            //     enforce: 'pre',
-            //     use: ['source-map-loader'],
-            // },
             {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 use: [
-                    //Uncomment for production \/
-                    MiniCssExtractPlugin.loader,
-                    // // //Comment for production \/
-                    // 'style-loader',
+                    // //Uncomment for production \/
+                    // MiniCssExtractPlugin.loader,
+
+                    // //Comment for production \/
+                    'style-loader',
+
                     // //end of code to comment/uncomment
                     {
                         loader: 'css-loader',
@@ -99,8 +96,6 @@ module.exports = {
                     outputPath: '/assets/fonts/'
                 }
             },
-
-
             {
                 test: /\.(png|jpg|gif)$/i,
                 use: [
