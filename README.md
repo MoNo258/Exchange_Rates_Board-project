@@ -33,6 +33,11 @@ Final Project for CodersLab JavaScrip+React course
 
 ## General stuff
 
+#### For running app locally
+1. Clone app: `git clone https://github.com/MoNo258/Exchange_Rates_Board-project`
+2. Go to folder where files will be placed `cd Exchange_Rates_Board-project`
+3. In above folder run in terminal `npm i`
+
 #### if you want to download this project locally and run it there you need to get access to APIs and connect the project with Firebase.
 1. Create accounts for FIXER API and XTB API.
 2. You need to create Firebase account and then project for web app that must be connected to this one (use Firebase tutorials).
@@ -59,14 +64,10 @@ export const firebaseConfig = {
 };
 ```
 
-
-
-
-## Webpack stuff and running app
+#### Webpack stuff
 `webpack.config.js` is ready for development usage.
 
-
-How to run app?
+#### How to run app?
 
 In `package.json` there is key called `scripts` which give information what needs to be run when app is starting.
 ```JavaScript
