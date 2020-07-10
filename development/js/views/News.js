@@ -10,7 +10,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 import React, {useEffect, useState} from "react";
-// import {USER_ID_XTB, USER_PSSWRD_XTB} from "../services/secret";
+import {userIdXTB, passwordXTB} from "../services/constants";
 // reactstrap components
 import {Card, CardHeader, CardBody, CardTitle, Row, Col} from "reactstrap";
 
@@ -27,10 +27,8 @@ const News = () => {
         let msg = {};
         msg.command = "login";
         let argumentsLogin = {};
-        // argumentsLogin.userId = USER_ID_XTB;
-        argumentsLogin.userId = process.env.USER_ID_XTB;
-        // argumentsLogin.password = USER_PSSWRD_XTB;
-        argumentsLogin.password = process.env.USER_PSSWRD_XTB;
+        argumentsLogin.userId = userIdXTB;
+        argumentsLogin.password = passwordXTB;
         msg.arguments = argumentsLogin;
         // console.log('Trying to log in as: ' + msg.arguments.userId);
         send(msg);

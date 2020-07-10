@@ -1,10 +1,9 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-// import {firebaseConfig} from "../services/secret";
+import {firebaseConfigData} from "../services/constants";
 
 
 // Initialize Firebase
-// firebase.initializeApp(firebaseConfig);
-firebase.initializeApp(process.env.firebaseConfig);
+firebase.initializeApp(firebaseConfigData);
 
 export default firebase;

@@ -1,14 +1,26 @@
-// import {KEY_FIXER} from "../services/secret";
+import {KEY_FIXER, USER_ID_XTB, USER_PSSWRD_XTB, firebaseConfig} from "../services/secret"; // for heroku this MUST be commented out
 
-//API FIXER
+
+// //API FIXER (used in components/Rates.js)
+export const API_KEY_REST = `?access_key=${KEY_FIXER}`; // sourced from services/secret.js
+// export const API_KEY_REST = `?access_key=${process.env.KEY_FIXER}`; // sourced from heroku Config Vars // needed for `git push heroku master`
+
 export const API_URL_REST = 'http://data.fixer.io/api';
 export const latest_REST = '/latest'; //option for latest spots -> http://data.fixer.io/api/latest?access_key=YOUR_ACCESS_KEY&base=JPY&symbols=USD,AUD,CAD,PLN,MXN
-export const historical_REST = '2020-01-01'; ////option for historical rates/spots for given date -> http://data.fixer.io/api/2020-01-01?access_key=c02b87d109a928029679584b8d27fb65&base=EUR&symbols=USD,AUD,CAD,PLN,MXN
-// export const API_KEY_REST = `?access_key=${KEY_FIXER}`;
-export const API_KEY_REST = `?access_key=${process.env.KEY_FIXER}`;
-export const base_REST = '&base=EUR'; //optional //looks like only EUR is free. also EUR is default value (no need to provide this part at all)
-export const symbols_API_REST = 'USD,AUD,CAD'; //optional //quote currencies (against base)
 
-//API NBP
+
+// //API NBP (used in components/RatesWithChange.js)
 export const API_NBP = 'http://api.nbp.pl/api/exchangerates/tables/C';
+
+
+// //API XTB WebSocket (used in components/News.js)
+export const userIdXTB = USER_ID_XTB; // sourced from services/secret.js
+// export const userIdXTB = process.env.USER_ID_XTB; // sourced from heroku Config Vars // needed for `git push heroku master`
+export const passwordXTB = USER_PSSWRD_XTB; // sourced from services/secret.js
+// export const passwordXTB = process.env.USER_PSSWRD_XTB; // sourced from heroku Config Vars // needed for `git push heroku master`
+
+
+// //Firebase details used in firebase/firebase.config.js
+export const firebaseConfigData = firebaseConfig; // sourced from services/secret.js
+// export const firebaseConfigData = process.env.firebaseConfig; // sourced from heroku Config Vars // needed for `git push heroku master`
 
