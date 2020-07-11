@@ -1,6 +1,11 @@
 # Exchange Rates Board project
 Final Project for CodersLab JavaScrip+React course
 
+## Link to demo
+https://mono258.github.io/Exchange_Rates_Board-project `*`
+
+`*` NOTE: data from one API is missing due to unavailability to reach it through `https` link (this works correctly locally, on dev server, though). Also please be aware that app is not finished - additional features connected to user's registration, and login, and customization will ba added later. In case when NEWS tab is not showing you data please open this app in Chrome Incognito card or in Firefox browser.
+
 #### This project uses:
 * JavaScript ES6
 * React
