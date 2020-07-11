@@ -9,7 +9,7 @@ module.exports = {
     output: {
         filename: "out.js",
         path: path.resolve(__dirname, `build`),
-        // publicPath: "/"
+        publicPath: "/"
     },
     devServer: {
         contentBase: path.join(__dirname, `development`),
@@ -17,8 +17,6 @@ module.exports = {
         compress: true,
         port: process.env.PORT || 3001,
         historyApiFallback: true,
-        // disableHostCheck: true, // for package.json part with webpack dev: "start": "webpack-dev-server --port $PORT --host 0.0.0.0"
-        // host: '0.0.0.0' // for package.json part with webpack dev: "start": "webpack-dev-server --port $PORT --host 0.0.0.0"
     },
     // watch: true, // for DEV
     watch: false, //for PROD
