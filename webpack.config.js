@@ -15,13 +15,13 @@ module.exports = {
         contentBase: path.join(__dirname, `development`),
         publicPath: "/build/",
         compress: true,
-        port: 3001 || process.env.PORT,
+        port: process.env.PORT || 3001,
         historyApiFallback: true
     },
     // watch: true, // for DEV
     watch: false, //for PROD
     // mode: 'development',
-    mode: 'production',
+    // mode: 'production',
     devtool: "source-map",
     plugins: [
         new Html({
