@@ -15,7 +15,7 @@ module.exports = {
         contentBase: path.join(__dirname, `development`),
         publicPath: "/build/",
         compress: true,
-        port: 3001,
+        port: 3001 || process.env.PORT,
         historyApiFallback: true
     },
     // watch: true, // for DEV
