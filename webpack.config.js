@@ -20,7 +20,8 @@ module.exports = {
     },
     // watch: true, // for DEV
     watch: false, //for PROD
-    mode: 'development',
+    // mode: 'development',
+    mode: 'production',
     devtool: "source-map",
     plugins: [
         new Html({
