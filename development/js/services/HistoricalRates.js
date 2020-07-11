@@ -10,7 +10,7 @@ export class HistoricalRates {
 
     //for new approach
     getHistRatesForCurrency = (currencyName, successCallback) => {
-        fetch(`http://api.nbp.pl/api/exchangerates/rates/A/${currencyName}/2020-01-01/${this.newCurrentDate}/`, {
+        fetch(`https://api.nbp.pl/api/exchangerates/rates/A/${currencyName}/2020-01-01/${this.newCurrentDate}/`, {
             method: 'GET'
         })
             .then(resp => {
