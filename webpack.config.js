@@ -15,9 +15,11 @@ module.exports = {
         contentBase: path.join(__dirname, `development`),
         publicPath: "/build/",
         compress: true,
-        port: process.env.PORT || 3001,
+        // port: process.env.PORT || 3001,
+        port: process.env.PORT,
         historyApiFallback: true,
-        // disableHostCheck: true // for package.json part with webpack dev: "start": "webpack-dev-server --port $PORT --host 0.0.0.0"
+        disableHostCheck: true, // for package.json part with webpack dev: "start": "webpack-dev-server --port $PORT --host 0.0.0.0"
+        host: '0.0.0.0' // for package.json part with webpack dev: "start": "webpack-dev-server --port $PORT --host 0.0.0.0"
     },
     // watch: true, // for DEV
     watch: false, //for PROD
