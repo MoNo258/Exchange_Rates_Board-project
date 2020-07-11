@@ -8,7 +8,7 @@
   "description": "Final Project for JavaScript + React course in CodersLab",
   "main": "app.js",
   "scripts": {
-    "start": "webpack-dev-server --hot -d",
+    "start": "webpack-dev-server --hot -d --port --host",
     "build": "webpack -p"
   },
   "heroku-run-build-script": true,
