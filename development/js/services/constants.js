@@ -5,12 +5,12 @@
 // export const API_KEY_REST = `?access_key=${KEY_FIXER}`; // sourced from services/secret.js // for heroku this MUST be commented out
 export const API_KEY_REST = `?access_key=${process.env.KEY_FIXER}`; // sourced from heroku Config Vars // NEEDED for `git push heroku master`
 
-export const API_URL_REST = 'http://data.fixer.io/api';
+export const API_URL_REST = 'https://data.fixer.io/api' || 'http://data.fixer.io/api';
 export const latest_REST = '/latest'; //option for latest spots -> http://data.fixer.io/api/latest?access_key=YOUR_ACCESS_KEY&base=JPY&symbols=USD,AUD,CAD,PLN,MXN
 
 
 // //API NBP (used in components/RatesWithChange.js)
-export const API_NBP = 'http://api.nbp.pl/api/exchangerates/tables/C';
+export const API_NBP = 'https://api.nbp.pl/api/exchangerates/tables/C';
 
 
 // //API XTB WebSocket (used in components/News.js)
