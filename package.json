@@ -9,6 +9,7 @@
   "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server --hot -d",
+    "build": "webpack -p",
     "postinstall": "npm run build"
   },
   "heroku-run-build-script": true,
