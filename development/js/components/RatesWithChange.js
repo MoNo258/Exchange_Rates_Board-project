@@ -21,7 +21,7 @@ const RatesWithChange = () => {
     const newPrevValueDate = `${prevYear}-${prevMonth}-${prevDay}`;
 
     useEffect(() => {
-        fetch(`${API_NBP}`, {
+        fetch(`${API_NBP}/tables/C`, {
             method: 'GET'
         })
             .then(resp => {
@@ -43,7 +43,7 @@ const RatesWithChange = () => {
     useEffect(() => {
         // const timer = setTimeout( () => {
         if (date !== '...') {
-            const newFetchApi = `${API_NBP}/${date}`;
+            const newFetchApi = `${API_NBP}/tables/C/${date}`;
             // console.log(newFetchApi);
             fetch(newFetchApi, {
                 method: 'GET'

@@ -10,7 +10,7 @@ export const latest_REST = '/latest'; //option for latest spots -> http://data.f
 
 
 // //API NBP (used in components/RatesWithChange.js)
-export const API_NBP = 'https://api.nbp.pl/api/exchangerates/tables/C';
+export const API_NBP = 'https://api.nbp.pl/api/exchangerates';
 
 
 // //API XTB WebSocket (used in components/News.js)

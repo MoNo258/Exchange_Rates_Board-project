@@ -1,4 +1,5 @@
 import React from "react";
+import {API_NBP} from "../services/constants";
 
 export class HistoricalRates {
 
@@ -10,7 +11,7 @@ export class HistoricalRates {
 
     //for new approach
     getHistRatesForCurrency = (currencyName, successCallback) => {
-        fetch(`https://api.nbp.pl/api/exchangerates/rates/A/${currencyName}/2020-01-01/${this.newCurrentDate}/`, {
+        fetch(`${API_NBP}/rates/A/${currencyName}/2020-01-01/${this.newCurrentDate}/`, {
             method: 'GET'
         })
             .then(resp => {
@@ -53,7 +54,7 @@ export class HistoricalRates {
 //     // //for new approach
 //     // let getHistRatesForCurrency = (currencyName, successCallback) => {
 //     //
-//     //     fetch(`http://api.nbp.pl/api/exchangerates/rates/A/${currencyName}/2020-01-01/${newCurrentDate}/`, {
+//     //     fetch(`https://api.nbp.pl/api/exchangerates/rates/A/${currencyName}/2020-01-01/${newCurrentDate}/`, {
 //     //         method: 'GET'
 //     //     })
 //     //         .then(resp => {
@@ -69,7 +70,7 @@ export class HistoricalRates {
 //
 //     let getHistRates = () => {
 //         Object.keys(histRatesAll).forEach(  curr => {
-//              fetch(`http://api.nbp.pl/api/exchangerates/rates/A/${curr}/2020-01-01/${newCurrentDate}/`, {
+//              fetch(`https://api.nbp.pl/api/exchangerates/rates/A/${curr}/2020-01-01/${newCurrentDate}/`, {
 //                 method: 'GET'
 //             })
 //                 .then(resp => {
