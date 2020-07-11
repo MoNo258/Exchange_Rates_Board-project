@@ -50,7 +50,7 @@ module.exports = {
                     //Uncomment for production \/
                     MiniCssExtractPlugin.loader,
 
-                    // // //Comment for production \/
+                    // //Comment for production \/
                     // 'style-loader',
 
                     // //end of code to comment/uncomment
