@@ -9,8 +9,7 @@
   "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server --port $PORT --host 0.0.0.0",
-    "build": "webpack -p",
-    "postinstall": "npm run build"
+    "build": "webpack -p"
   },
   "heroku-run-build-script": true,
   "repository": {
