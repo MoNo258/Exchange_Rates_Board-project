@@ -1,12 +1,17 @@
 {
   "name": "Exchange_Rates_Board-project",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.x",
+    "npm": "6.x"
+  },
   "description": "Final Project for JavaScript + React course in CodersLab",
   "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server --hot -d",
     "build": "webpack -p"
   },
+  "heroku-run-build-script": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MoNo258/Exchange_Rates_Board-project"
