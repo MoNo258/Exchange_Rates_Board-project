@@ -47,11 +47,11 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 use: [
-                    // //Uncomment for production \/
-                    // MiniCssExtractPlugin.loader,
+                    //Uncomment for production \/
+                    MiniCssExtractPlugin.loader,
 
-                    //Comment for production \/
-                    'style-loader',
+                    // //Comment for production \/
+                    // 'style-loader',
 
                     // //end of code to comment/uncomment
                     {
