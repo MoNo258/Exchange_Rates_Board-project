@@ -18,7 +18,8 @@ module.exports = {
         port: 3001,
         historyApiFallback: true
     },
-    watch: true,
+    // watch: true, // for DEV
+    watch: false, //for PROD
     mode: 'development',
     devtool: "source-map",
     plugins: [
