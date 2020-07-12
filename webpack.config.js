@@ -9,7 +9,7 @@ module.exports = {
     output: {
         filename: "out.js",
         path: path.resolve(__dirname, `build`),
-        publicPath: "/"
+        publicPath: "./"
     },
     devServer: {
         contentBase: path.join(__dirname, `development`),
@@ -94,8 +94,8 @@ module.exports = {
                 options: {
                     limit: 1024,
                     name: '[name].[ext]',
-                    publicPath: '/assets/fonts/',
-                    outputPath: '/assets/fonts/'
+                    publicPath: './assets/fonts/',
+                    outputPath: './assets/fonts/'
                 }
             },
             {

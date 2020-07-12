@@ -77,17 +77,22 @@ export const firebaseConfig = {
 In `package.json` there is key called `scripts` which give information what needs to be run when app is starting.
 ```JavaScript
 {
-"start": "webpack-dev-server --hot -d",
-"build": "webpack -p"
+    "dev": "webpack-dev-server --hot -d",
+    "start": "node server.js",
+    "build": "webpack -p",
 }
 ```
-`start` will run development server (`http://localhost:3001/`)
+`dev` will run development server (`http://localhost:3001/`)
 ```JavaScript
-npm start
+npm run dev
 ```
-`build` will run production version of our app. This will create `build` folder with out.js file:
+`build` will run production version of our app. This will create `build` folder with `index.html`, `main.css` and `out.js` files - `index.html` must be opened with Live Server option in your IDE:
 ```JavaScript
 npm run build
+```
+`start` will run latest version of our app using server created with Express (locally this will be: `http://localhost:8080/` - setup is vailable in `server.js` file). This additional server is added because app was deployed on Heroku (note: server used on Heroku is defined by Heroku and so `process.env.PORT` variable is used):
+```JavaScript
+npm start
 ```
 
 There are cases when extensions installed in your browser can disturb when running app (mostly connected to WebSocket API) - then I recommend to open this project in incognito card (without extensions).
