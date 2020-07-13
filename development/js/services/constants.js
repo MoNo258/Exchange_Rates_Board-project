@@ -22,5 +22,13 @@ export const passwordXTB = process.env.USER_PSSWRD_XTB; // sourced from heroku C
 
 // //Firebase details used in firebase/firebase.config.js
 // export const firebaseConfigData = firebaseConfig; // sourced from services/secret.js // for heroku this MUST be commented out
-export const firebaseConfigData = process.env.firebaseConfig; // sourced from heroku Config Vars // NEEDED for `git push heroku master`
+export const firebaseConfigData = {
+    apiKey: process.env.f_apiKey,
+    authDomain: process.env.f_authDomain,
+    databaseURL: process.env.f_databaseURL,
+    projectId: process.env.f_projectId,
+    storageBucket: process.env.f_storageBucket,
+    messagingSenderId: process.env.f_messagingSenderId,
+    appId: process.env.f_appId
+}; // sourced from heroku Config Vars // NEEDED for `git push heroku master`
 
