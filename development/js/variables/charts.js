@@ -47,8 +47,8 @@ export let chart1_2_options = {
                     zeroLineColor: "transparent"
                 },
                 ticks: {
-                    suggestedMin: 4.2571,
-                    suggestedMax: 4.2571,
+                    suggestedMin: 4.5,
+                    suggestedMax: 4.5,
                     padding: 10,
                     fontColor: "#9a9a9a"
                 }
