@@ -1,10 +1,10 @@
 # Exchange Rates Board project
-Final Project for CodersLab JavaScrip+React course
+Final Project for CodersLab JavaScrip+React course. Application is presenting latest and historical exchange rates (sourced from API) and financial news (sourced from API). Simple Firebase registration and login process is available (this will be developed further together with user's functionalities).
 
 ## Link to demo
 https://mono258.github.io/Exchange_Rates_Board-project `*`
 
-`*` NOTE: data from one API is missing due to unavailability to reach it through `https` link (this works correctly locally, on dev server, though). Also please be aware that app is not finished - additional features connected to user's registration, and login, and customization will ba added later. In case when NEWS tab is not showing you data please open this app in Chrome Incognito card or in Firefox browser.
+`*` NOTE: data from one API is missing due to unavailability to reach it through `https` link (this works correctly locally, on dev server, though). Also please be aware that app is not finished - additional features connected to user's customization will ba added later. In case when NEWS tab is not showing you data please open this app in Chrome Incognito card or in Firefox browser.
 
 #### This project uses:
 * JavaScript ES6
@@ -13,6 +13,7 @@ https://mono258.github.io/Exchange_Rates_Board-project `*`
 * Bootstrap & reactstrap
 * Webpack (for configuration)
 * REST API + WebSocket API
+* Firebase
 * GitHub repository: Black Dashboard React `*`
 
 
@@ -82,17 +83,18 @@ In `package.json` there is key called `scripts` which give information what need
     "build": "webpack -p",
 }
 ```
-`dev` will run development server (`http://localhost:3001/`)
+`dev` will run development server (`http://localhost:3001/`) - use command:
 ```JavaScript
 npm run dev
 ```
-`build` will run production version of our app. This will create `build` folder with `index.html`, `main.css` and `out.js` files - `index.html` must be opened with Live Server option in your IDE:
+`build` will run production version of app. This will create `build` folder with `index.html`, `main.css` and `out.js` files (then `index.html` must be opened with Live Server option in your IDE) - use command:
 ```JavaScript
 npm run build
 ```
-`start` will run latest version of our app using server created with Express (locally this will be: `http://localhost:8080/` - setup is vailable in `server.js` file). This additional server is added because app was deployed on Heroku (note: server used on Heroku is defined by Heroku and so `process.env.PORT` variable is used):
+`start` will run latest version of app using server created with Express (locally this will be: `http://localhost:8080/` - setup is available in `server.js` file) - use command:
 ```JavaScript
 npm start
 ```
+This additional server is added because of Heroku deployment process (note: server used on Heroku is defined by Heroku and so `process.env.PORT` variable is used) - Heroku battle is in progress...
 
 There are cases when extensions installed in your browser can disturb when running app (mostly connected to WebSocket API) - then I recommend to open this project in incognito card (without extensions).

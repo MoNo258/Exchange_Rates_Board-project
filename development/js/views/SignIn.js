@@ -151,14 +151,14 @@ export const SignIn = () => {
                                         </Col>
                                     </Row>
                                     <Row>
-                                        <Col className="px-md-1" md="6">
-                                            <FormGroup>
-                                                <label>Username</label>
-                                                <Input placeholder="Username" type="text" name={"username"} value={user.username}
-                                                       onChange={handleChangeUserData}
-                                                />
-                                            </FormGroup>
-                                        </Col>
+                                        {/*<Col className="px-md-1" md="6">*/}
+                                        {/*    <FormGroup>*/}
+                                        {/*        <label>Username</label>*/}
+                                        {/*        <Input placeholder="Username" type="text" name={"username"} value={user.username}*/}
+                                        {/*               onChange={handleChangeUserData}*/}
+                                        {/*        />*/}
+                                        {/*    </FormGroup>*/}
+                                        {/*</Col>*/}
                                         <Col className="pl-md-1" md="6">
                                             <FormGroup>
                                                 <label htmlFor="exampleInputEmail1">
@@ -190,44 +190,44 @@ export const SignIn = () => {
                                         </Col>
                                     </Row>
 
-                                    <Row>
-                                        <Col className="pr-md-1" md="6">
-                                            <FormGroup>
-                                                <label>First Name</label>
-                                                <Input placeholder="First Name" type="text" name={"name"} value={user.name}
-                                                       onChange={handleChangeUserData}
-                                                />
-                                            </FormGroup>
-                                        </Col>
-                                        <Col className="pl-md-1" md="6">
-                                            <FormGroup>
-                                                <label>Last Name</label>
-                                                <Input placeholder="Last Name" type="text" name={"surname"} value={user.surname}
-                                                       onChange={handleChangeUserData}
-                                                />
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
-                                    <Row>
-                                        <Col md="3">
-                                            <FormGroup>
-                                                <Label for="gender">Gender</Label>
-                                                <Input type="select" name="gender" value={user.gender}
-                                                       onChange={handleChangeUserData} id="gender">
-                                                    <option value={"female"}>Female</option>
-                                                    <option value={"male"}>Male</option>
-                                                </Input>
-                                            </FormGroup>
-                                        </Col>
-                                        <Col md="9">
-                                            <FormGroup>
-                                                <label>Address</label>
-                                                <Input placeholder="Home Address" type="text" name={"address"} value={user.address}
-                                                       onChange={handleChangeUserData}
-                                                />
-                                            </FormGroup>
-                                        </Col>
-                                    </Row>
+                                    {/*<Row>*/}
+                                    {/*    <Col className="pr-md-1" md="6">*/}
+                                    {/*        <FormGroup>*/}
+                                    {/*            <label>First Name</label>*/}
+                                    {/*            <Input placeholder="First Name" type="text" name={"name"} value={user.name}*/}
+                                    {/*                   onChange={handleChangeUserData}*/}
+                                    {/*            />*/}
+                                    {/*        </FormGroup>*/}
+                                    {/*    </Col>*/}
+                                    {/*    <Col className="pl-md-1" md="6">*/}
+                                    {/*        <FormGroup>*/}
+                                    {/*            <label>Last Name</label>*/}
+                                    {/*            <Input placeholder="Last Name" type="text" name={"surname"} value={user.surname}*/}
+                                    {/*                   onChange={handleChangeUserData}*/}
+                                    {/*            />*/}
+                                    {/*        </FormGroup>*/}
+                                    {/*    </Col>*/}
+                                    {/*</Row>*/}
+                                    {/*<Row>*/}
+                                    {/*    <Col md="3">*/}
+                                    {/*        <FormGroup>*/}
+                                    {/*            <Label for="gender">Gender</Label>*/}
+                                    {/*            <Input type="select" name="gender" value={user.gender}*/}
+                                    {/*                   onChange={handleChangeUserData} id="gender">*/}
+                                    {/*                <option value={"female"}>Female</option>*/}
+                                    {/*                <option value={"male"}>Male</option>*/}
+                                    {/*            </Input>*/}
+                                    {/*        </FormGroup>*/}
+                                    {/*    </Col>*/}
+                                    {/*    <Col md="9">*/}
+                                    {/*        <FormGroup>*/}
+                                    {/*            <label>Address</label>*/}
+                                    {/*            <Input placeholder="Home Address" type="text" name={"address"} value={user.address}*/}
+                                    {/*                   onChange={handleChangeUserData}*/}
+                                    {/*            />*/}
+                                    {/*        </FormGroup>*/}
+                                    {/*    </Col>*/}
+                                    {/*</Row>*/}
 
                                     <Row>
                                         <Col md="12">
