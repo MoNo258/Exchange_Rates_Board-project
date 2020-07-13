@@ -1,4 +1,5 @@
-import {firebaseConfigData} from "../services/constants";
+// import {firebaseConfigData} from "../services/constants";
+const firebaseConfigData = require("../services/constantsFirebase")
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
