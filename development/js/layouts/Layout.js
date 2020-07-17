@@ -16,7 +16,7 @@
 
 */
 import React from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import {Route, Switch, Redirect} from "react-router-dom";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 
@@ -28,7 +28,10 @@ import Sidebar from "../components/Sidebar";
 import routes from "../router";
 // import logo from "../../public/logo.png";
 
+import firebase from "../firebase/firebase.config";
+
 var ps;
+const auth = firebase.auth;
 
 class Layout extends React.Component {
     constructor(props) {
@@ -36,20 +39,34 @@ class Layout extends React.Component {
         this.state = {
             backgroundColor: "blue",
             sidebarOpened:
-                document.documentElement.className.indexOf("nav-open") !== -1
+                document.documentElement.className.indexOf("nav-open") !== -1,
+            authenticated: false,
+            routesUser: routes.slice(0, 5), //routes for logged in user
+            routesNonUser: routes.slice(0, 3).concat(routes.slice(5)), //routes for stranger
         };
     }
+
     componentDidMount() {
         if (navigator.platform.indexOf("Win") > -1) {
             document.documentElement.className += " perfect-scrollbar-on";
             document.documentElement.classList.remove("perfect-scrollbar-off");
-            ps = new PerfectScrollbar(this.refs.mainPanel, { suppressScrollX: true });
+            ps = new PerfectScrollbar(this.refs.mainPanel, {suppressScrollX: true});
             let tables = document.querySelectorAll(".table-responsive");
             for (let i = 0; i < tables.length; i++) {
                 ps = new PerfectScrollbar(tables[i]);
             }
         }
+        //checking if user is logged in so that routes can be displayed based on authenticated parameter
+        auth().onAuthStateChanged(user => {
+            if (user) {
+                this.setState({authenticated: true})
+            } else {
+                this.setState({authenticated: false})
+            }
+        });
+
     }
+
     componentWillUnmount() {
         if (navigator.platform.indexOf("Win") > -1) {
             ps.destroy();
@@ -57,6 +74,7 @@ class Layout extends React.Component {
             document.documentElement.classList.remove("perfect-scrollbar-on");
         }
     }
+
     componentDidUpdate(e) {
         if (e.history.action === "PUSH") {
             if (navigator.platform.indexOf("Win") > -1) {
@@ -70,10 +88,11 @@ class Layout extends React.Component {
             this.refs.mainPanel.scrollTop = 0;
         }
     }
+
     // this function opens and closes the sidebar on small devices
     toggleSidebar = () => {
         document.documentElement.classList.toggle("nav-open");
-        this.setState({ sidebarOpened: !this.state.sidebarOpened });
+        this.setState({sidebarOpened: !this.state.sidebarOpened});
     };
     getRoutes = routes => {
         return routes.map((prop, key) => {
@@ -91,7 +110,7 @@ class Layout extends React.Component {
         });
     };
     handleBgClick = color => {
-        this.setState({ backgroundColor: color });
+        this.setState({backgroundColor: color});
     };
     getBrandText = path => {
         for (let i = 0; i < routes.length; i++) {
@@ -105,13 +124,14 @@ class Layout extends React.Component {
         }
         return "Brand";
     };
+
     render() {
         return (
             <>
                 <div className="wrapper">
                     <Sidebar
                         {...this.props}
-                        routes={routes}
+                        routes={this.state.authenticated === true ? this.state.routesUser : this.state.routesNonUser}
                         bgColor={this.state.backgroundColor}
                         logo={{
                             outterLink: "/",
@@ -133,12 +153,12 @@ class Layout extends React.Component {
                             sidebarOpened={this.state.sidebarOpened}
                         />
                         <Switch>
-                            {this.getRoutes(routes)}
+                            {this.state.authenticated === true ? this.getRoutes(this.state.routesUser) : this.getRoutes(this.state.routesNonUser)}
                             <Redirect from="*" to="/main/dashboard"/>
                         </Switch>
                         {// we don't want the Footer to be rendered on map page
                             this.props.location.pathname.indexOf("maps") !== -1 ? null : (
-                                <Footer fluid />
+                                <Footer fluid/>
                             )}
                     </div>
                 </div>

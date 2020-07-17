@@ -29,8 +29,8 @@ class Dashboard extends React.Component {
             <>
                 <div className="content">
 
-                    <Rates />
                     <RatesWithChange />
+                    <Rates />
                     {/*<InterestRates />*/}
 
                 </div>

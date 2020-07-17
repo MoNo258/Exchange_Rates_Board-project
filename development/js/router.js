@@ -53,6 +53,13 @@ var routes = [
         layout: "/main"
     },
     {
+        path: "/user-profile",
+        name: "User Profile",
+        icon: "tim-icons icon-single-02",
+        component: UserProfile,
+        layout: "/main"
+    },
+    {
         path: "/sign-in",
         name: "Sign In",
         icon: "tim-icons icon-single-02",
@@ -64,13 +71,6 @@ var routes = [
         name: "Login",
         icon: "tim-icons icon-single-02",
         component: Login,
-        layout: "/main"
-    },
-    {
-        path: "/user-profile",
-        name: "User Profile",
-        icon: "tim-icons icon-single-02",
-        component: UserProfile,
         layout: "/main"
     },
 
