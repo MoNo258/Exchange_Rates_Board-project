@@ -18,14 +18,14 @@ module.exports = {
         port: process.env.PORT || 3001,
         historyApiFallback: true,
     },
-    //Uncomment for production \/
-    watch: false, //for PROD
-    // //Comment for production \/
-    // watch: true, // for DEV
+    // //Uncomment for production \/
+    // watch: false, //for PROD
+    //Comment for production \/
+    watch: true, // for DEV
     // //end of code to comment/uncomment
 
-    // mode: 'development',
-    mode: 'production',
+    mode: 'development',
+    // mode: 'production',
     devtool: "source-map",
     plugins: [
         new Html({
@@ -51,11 +51,11 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 use: [
-                    //Uncomment for production \/
-                    MiniCssExtractPlugin.loader,
+                    // //Uncomment for production \/
+                    // MiniCssExtractPlugin.loader,
 
-                    // //Comment for production \/
-                    // 'style-loader',
+                    //Comment for production \/
+                    'style-loader',
 
                     // //end of code to comment/uncomment
                     {
