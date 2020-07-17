@@ -28,7 +28,10 @@ import Sidebar from "../components/Sidebar";
 import routes from "../router";
 // import logo from "../../public/logo.png";
 
+import firebase from "../firebase/firebase.config";
+
 var ps;
+const auth = firebase.auth;
 
 class Layout extends React.Component {
     constructor(props) {
@@ -36,7 +39,13 @@ class Layout extends React.Component {
         this.state = {
             backgroundColor: "blue",
             sidebarOpened:
-                document.documentElement.className.indexOf("nav-open") !== -1
+                document.documentElement.className.indexOf("nav-open") !== -1,
+
+            authenticated: false,
+            routesUser: routes.slice(0,4),
+            routesNonUser: routes.slice(5),
+
+
         };
     }
     componentDidMount() {
@@ -49,6 +58,19 @@ class Layout extends React.Component {
                 ps = new PerfectScrollbar(tables[i]);
             }
         }
+
+
+
+        auth().onAuthStateChanged( user => {
+            if (user) {
+                this.setState({ authenticated: true})
+            } else {
+                this.setState({authenticated: false})
+            }
+        });
+
+
+
     }
     componentWillUnmount() {
         if (navigator.platform.indexOf("Win") > -1) {
@@ -111,7 +133,7 @@ class Layout extends React.Component {
                 <div className="wrapper">
                     <Sidebar
                         {...this.props}
-                        routes={routes}
+                        routes={this.state.authenticated === true ? this.state.routesUser : this.state.routesNonUser}
                         bgColor={this.state.backgroundColor}
                         logo={{
                             outterLink: "/",
@@ -133,7 +155,7 @@ class Layout extends React.Component {
                             sidebarOpened={this.state.sidebarOpened}
                         />
                         <Switch>
-                            {this.getRoutes(routes)}
+                            {this.state.authenticated === true ? this.getRoutes(this.state.routesUser) : this.getRoutes(this.state.routesNonUser)}
                             <Redirect from="*" to="/main/dashboard"/>
                         </Switch>
                         {// we don't want the Footer to be rendered on map page
