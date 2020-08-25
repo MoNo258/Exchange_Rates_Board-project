@@ -1,5 +1,6 @@
 # Exchange Rates Board project
-Final Project for CodersLab JavaScrip+React course. Application is presenting latest and historical exchange rates (sourced from API) and financial news (sourced from API). Simple Firebase registration and login process is available (this will be developed further together with user's functionalities).
+Final Project for Coders Lab Front-end course. Application is presenting latest and historical exchange rates (sourced from API) and financial news (sourced from API). Simple Firebase registration and login process is available (this will be developed further together with user's functionalities).<br />
+The idea behind this was based on my experience as Financial Analyst - this app was supposed to be a 'little sister' of Reuters and Bloomberg terminals. I was struggling a lot to find free API services that will give me opportunity to show wider range of financial instruments. Having that in mind I am really happy to present you rates' table, charts and financial news.
 
 ## Link to demo
 https://mono258.github.io/Exchange_Rates_Board-project `*`
