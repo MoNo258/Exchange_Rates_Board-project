@@ -25,9 +25,3 @@ const App = () => {
 };
 
 ReactDOM.render(<App/>, document.querySelector("#app"));
-
-
-//const reload = () => window.location.reload();
-//
-// <Route path="/my-static-file.ext" onEnter={reload} />
-// <Route path="/something.html" onEnter={reload} />

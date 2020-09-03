@@ -2,7 +2,7 @@
   "name": "Exchange_Rates_Board-project",
   "version": "1.0.0",
   "engines": {
-    "node": "10.x",
+    "node": "12.x",
     "npm": "6.x"
   },
   "description": "Final Project for JavaScript + React course in CodersLab",
